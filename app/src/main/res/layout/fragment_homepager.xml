@@ -15,6 +15,7 @@
         android:layout_alignParentTop="true" />
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment_homePager_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
