@@ -1,8 +1,8 @@
 package com.demo.yetote.cubegame.fragment;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -25,20 +25,18 @@ import java.util.ArrayList;
  */
 public class HomePagerFragment extends Fragment {
     private RecyclerView rv;
-    private HomePagerRVAdapter adapter;
-    private ArrayList<HomePgaerModel> list;
     private ViewPager viewPager;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_homepager, container);
+        View v = inflater.inflate(R.layout.fragment_homepager, container,false);
 
         initViews(v);
 
-        list = new ArrayList<>();
-        rv.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new HomePagerRVAdapter(getContext(), list);
+        ArrayList<HomePgaerModel> list = new ArrayList<>();
+        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+        HomePagerRVAdapter adapter = new HomePagerRVAdapter(getActivity(), list);
         rv.setAdapter(adapter);
 
         return v;

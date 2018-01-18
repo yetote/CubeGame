@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--主页侧滑栏菜单-->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/drawerlayout_menu_mine">
+        <item
+            android:icon="@mipmap/order"
+            android:id="@+id/drawerlayout_menu_mine_order"
+            android:title="@string/menu_mine_order" />
+        <item
+            android:icon="@mipmap/topic"
+            android:id="@+id/drawerlayout_menu_mine_topic"
+            android:title="@string/menu_mine_topic" />
+    </group>
+    <group android:id="@+id/drawerlayout_menu_safe">
+        <item
+            android:icon="@mipmap/safety"
+            android:id="@+id/drawerlayout_menu_safe_item"
+            android:title="@string/menu_safe" />
+    </group>
+    <group android:id="@+id/drawerlayout_menu_setting">
+        <item
+            android:icon="@mipmap/change_pwd"
+            android:id="@+id/drawerlayout_menu_setting_changePwd"
+            android:title="@string/menu_setting_changePwd" />
+        <item
+            android:icon="@mipmap/change_info"
+            android:id="@+id/drawerlayout_menu_setting_changeInfo"
+            android:title="@string/menu_setting_changeInfo" />
+    </group>
+        <item
+            android:id="@+id/drawerlayout_menu_exit"
+            android:title="@string/menu_exit"
+            />
+</menu>

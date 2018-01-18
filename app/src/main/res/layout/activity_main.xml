@@ -30,7 +30,7 @@
         android:layout_gravity="start"
         app:elevation="5dp"
         app:headerLayout="@layout/drawerlayout_head"
-        app:menu="@menu/drawerLayout_menu">
+        app:menu="@menu/drawerlayout_menu">
 
     </android.support.design.widget.NavigationView>
 

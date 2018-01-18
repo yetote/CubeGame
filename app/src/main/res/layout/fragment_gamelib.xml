@@ -2,8 +2,14 @@
 
 <!--游戏库-->
 
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/gameLib" />
+</RelativeLayout>

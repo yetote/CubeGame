@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/drawerlayout_head_bc"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/test_head" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/drawerlayout_head_headIv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/test_headimg" />
+
+    <TextView
+        android:id="@+id/drawerlayout_head_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/drawerlayout_head_headIv"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:paddingEnd="10dp"
+        android:textSize="@dimen/titleSize"
+        android:paddingStart="10dp"
+        android:text="@string/test_title" />
+
+    <TextView
+        android:id="@+id/drawerlayout_head_describe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_below="@id/drawerlayout_head_name"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:textSize="@dimen/contentSize"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:singleLine="true"
+        android:text="@string/test_content" />
+</RelativeLayout>

@@ -6,4 +6,14 @@
     <string name="testDate">1-29</string>
     <string name="testDiscuss">256</string>
     <string name="contentDescription">背景</string>
+    <string name="menu_mine_order">我的订单</string>
+    <string name="menu_mine_topic">我的话题</string>
+    <string name="menu_safe">安全中心</string>
+    <string name="menu_setting_changePwd">修改密码</string>
+    <string name="menu_setting_changeInfo">修改资料</string>
+    <string name="menu_exit">注销登录</string>
+    <string name="boon">福利</string>
+    <string name="news">资讯</string>
+    <string name="gameLib">游戏库</string>
+    <string name="community">社区</string>
 </resources>

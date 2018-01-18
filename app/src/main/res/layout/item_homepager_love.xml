@@ -5,6 +5,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@color/transparent"
     android:layout_height="match_parent">
 
     <RelativeLayout
@@ -89,7 +90,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginTop="5dp"
             android:layout_toStartOf="@+id/item_homePager_love_discuss"
-            android:drawableStart="@drawable/time"
+            android:drawableStart="@mipmap/time"
             android:text="@string/testDate" />
 
         <TextView
@@ -100,7 +101,7 @@
             android:layout_below="@+id/item_homePager_love_contentCardView"
             android:layout_marginBottom="2dp"
             android:layout_marginTop="5dp"
-            android:drawableStart="@drawable/discuss"
+            android:drawableStart="@mipmap/discuss"
             android:text="@string/testDiscuss" />
 
     </RelativeLayout>

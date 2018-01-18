@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         android:layout_below="@id/item_homePager_content"
         android:layout_toEndOf="@+id/item_homePager_cardView"
         android:text="@string/missOld" />
@@ -74,7 +74,7 @@
         android:layout_alignBottom="@+id/item_homePager_tag"
         android:layout_marginEnd="11dp"
         android:layout_toStartOf="@+id/item_homePager_discuss"
-        android:drawableLeft="@drawable/time"
+        android:drawableLeft="@mipmap/time"
         android:text="@string/testDate" />
 
     <TextView
@@ -84,6 +84,6 @@
         android:layout_alignBaseline="@+id/item_homePager_time"
         android:layout_alignBottom="@+id/item_homePager_time"
         android:layout_alignParentEnd="true"
-        android:drawableLeft="@drawable/discuss"
+        android:drawableLeft="@mipmap/discuss"
         android:text="@string/testDiscuss" />
 </RelativeLayout>
