@@ -16,4 +16,6 @@
     <string name="news">资讯</string>
     <string name="gameLib">游戏库</string>
     <string name="community">社区</string>
+    <string name="headimg">头像</string>
+    <string name="appName">立方体游戏</string>
 </resources>
