@@ -18,4 +18,6 @@
     <string name="community">社区</string>
     <string name="headimg">头像</string>
     <string name="appName">立方体游戏</string>
+    <string name="search">搜索</string>
+    <string name="share">分享</string>
 </resources>

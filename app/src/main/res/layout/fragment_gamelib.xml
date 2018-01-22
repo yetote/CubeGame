@@ -6,10 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:gravity="center"
-        android:textSize="30sp"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/fragment_gameLib_tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment_gameLib_rv"
+        android:layout_below="@id/fragment_gameLib_tabLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/gameLib" />
+        android:gravity="center"
+        android:textSize="30sp" />
 </RelativeLayout>

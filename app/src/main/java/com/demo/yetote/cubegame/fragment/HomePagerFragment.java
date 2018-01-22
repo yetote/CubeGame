@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.adapter.HomePagerRVAdapter;
 import com.demo.yetote.cubegame.model.HomePgaerModel;
+import com.demo.yetote.cubegame.utils.HomePagerGrouping;
 
 import java.util.ArrayList;
 
@@ -38,7 +39,6 @@ public class HomePagerFragment extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         HomePagerRVAdapter adapter = new HomePagerRVAdapter(getActivity(), list);
         rv.setAdapter(adapter);
-
         return v;
     }
 
