@@ -7,6 +7,8 @@ import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
 
+import com.demo.yetote.cubegame.application.MyApplication;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -42,7 +44,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
     private static final CrashHandler ourInstance = new CrashHandler();
 
-    private static CrashHandler getInstance() {
+    public static CrashHandler getInstance() {
         return ourInstance;
     }
 
@@ -63,7 +65,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         uploadFileToServer(throwable);
 
         //退出应用
-        System.exit(0);
+        MyApplication.getContext().exitApp();
 
     }
 

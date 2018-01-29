@@ -3,13 +3,23 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/cadetblue</item>
+        <item name="android:colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/thistle</item>
+        <item name="colorControlHighlight">@color/palegreen</item>
+        <item name="colorPrimaryDark">@color/khaki</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="MyTheme" parent="AppTheme">
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="MyTextInputLayoutCountStyle" parent="TextAppearance.Design.Counter">
+        <item name="android:color">@color/white</item>
+    </style>
+    <style name="MyTextInputLayoutErrorStyle" parent="TextAppearance.Design.Error">
+        <item name="android:color">@color/white</item>
     </style>
 </resources>
