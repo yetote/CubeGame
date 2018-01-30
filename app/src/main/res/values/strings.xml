@@ -25,4 +25,6 @@
     <string name="pwd">密码</string>
     <string name="register">注册</string>
     <string name="get_verifyCode">获取验证码</string>
+    <string name="download">下载</string>
+    <string name="gameDescription">游戏图标</string>
 </resources>
