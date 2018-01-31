@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ee5f6d</color>
-    <!--<color name="colorPrimaryDark">#152d46</color>-->
+    <color name="colorPrimary">#152d46</color>
+    <color name="colorPrimaryDark">#152d46</color>
     <color name="colorAccent">#039BE5</color>
     <color name="textColor">#039BE5</color>
     <color name="transparent">#00000000</color><!--透明色 -->
