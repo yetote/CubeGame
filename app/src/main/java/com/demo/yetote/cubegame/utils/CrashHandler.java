@@ -13,6 +13,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
@@ -35,7 +36,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     /**
      * 文件名
      */
-    private static final String FILE_NAME = "crash";
+    private static final String FILE_NAME = "/crash";
 
     /**
      * 文件名后缀
@@ -101,6 +102,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
         //创建log文件
         File file = new File(PATH + FILE_NAME + time + FILE_NAME_SUFFIX);
+        Log.e(TAG, "saveThrowableToSDCard: "+PATH+FILE_NAME+ time+FILE_NAME_SUFFIX);
         try {
             PrintWriter printWriter = new PrintWriter(new BufferedWriter(new FileWriter(file)));
 
@@ -118,7 +120,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
             //打印异常信息
             throwable.printStackTrace(printWriter);
-
+            Log.e(TAG, "saveThrowableToSDCard: "+throwable );
             printWriter.close();
         } catch (Exception e) {
             e.printStackTrace();

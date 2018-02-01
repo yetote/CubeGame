@@ -27,4 +27,14 @@
     <string name="get_verifyCode">获取验证码</string>
     <string name="download">下载</string>
     <string name="gameDescription">游戏图标</string>
+    <string name="login">登录</string>
+    <string name="pwd_login">密码登录</string>
+    <string name="verifyCode_login">验证码登录</string>
+    <string name="QQlogin">QQ</string>
+    <string name="wechatlogin">微信</string>
+    <string name="sinalogin">新浪</string>
+    <string name="other_login">第三方登录</string>
+    <string name="toVerifyCodeLogin">切换至验证码登录</string>
+    <string name="toPwdLogin">切换至密码登录</string>
+    <string name="sure">确定</string>
 </resources>

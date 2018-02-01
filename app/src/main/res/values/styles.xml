@@ -9,11 +9,14 @@
         <item name="colorControlHighlight">@color/palegreen</item>
         <item name="colorPrimaryDark">@color/khaki</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
 
     <style name="MyTheme" parent="AppTheme">
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
     <style name="MyTextInputLayoutCountStyle" parent="TextAppearance.Design.Counter">
@@ -26,5 +29,9 @@
 
     <style name="MyTextInputLayoutErrorStyle" parent="TextAppearance.Design.Error">
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MyTranslucent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 </resources>

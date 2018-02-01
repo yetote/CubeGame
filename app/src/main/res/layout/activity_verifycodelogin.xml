@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    tools:context="com.demo.yetote.cubegame.VerifyCodeLoginActivity">
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/verifyCodeLogin_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/register"
+        android:transitionName="loginFab"
+        app:backgroundTint="@color/colorPrimary" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/verifyCodeLogin_cardView"
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        app:cardBackgroundColor="@color/verifyLoginColor">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/verifyCodeLogin_symbol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="@string/verifyCode_login"
+                android:textColor="@color/textColor"
+                android:textSize="25sp" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/verifyCodeLogin_tel_et_inputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/verifyCodeLogin_symbol"
+                android:hint="@string/tel"
+                android:textColorHint="@color/white"
+                app:counterEnabled="true"
+                app:counterMaxLength="11"
+                app:counterOverflowTextAppearance="@style/MyTextInputLayoutCountOverFlowStyle"
+                app:counterTextAppearance="@style/MyTextInputLayoutCountStyle"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/MyTextInputLayoutErrorStyle"
+                app:hintEnabled="true">
+
+                <EditText
+                    android:id="@+id/verifyCodeLogin_tel_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/verifyCodeLogin_verifyCode_et_inputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/verifyCodeLogin_tel_et_inputLayout"
+                android:layout_toStartOf="@id/verifyCodeLogin_getVerifyCode_btn"
+                android:hint="@string/verify_code"
+                android:textColorHint="@color/white"
+                app:counterEnabled="true"
+                app:counterMaxLength="6"
+                app:counterOverflowTextAppearance="@style/MyTextInputLayoutCountOverFlowStyle"
+                app:counterTextAppearance="@style/MyTextInputLayoutCountStyle"
+                app:errorTextAppearance="@style/MyTextInputLayoutErrorStyle"
+                app:hintEnabled="true">
+
+                <EditText
+                    android:id="@+id/verifyCodeLogin_verifyCode_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/verifyCodeLogin_getVerifyCode_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/verifyCodeLogin_tel_et_inputLayout"
+                android:background="@drawable/get_verifycode_btn_background"
+                android:text="@string/get_verifyCode"
+                android:textColor="@color/textColor" />
+
+            <Button
+                android:id="@+id/verifyCodeLogin_sure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/verifyCodeLogin_verifyCode_et_inputLayout"
+                android:background="@drawable/get_verifycode_btn_background"
+                android:text="@string/login"
+                android:textColor="@color/textColor" />
+
+            <include
+                android:id="@+id/verifyCodeLogin_other_login"
+                layout="@layout/layout_other_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_above="@id/verifyCodeLogin_to_pwdLogin"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:id="@+id/verifyCodeLogin_to_pwdLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:text="@string/toPwdLogin"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
