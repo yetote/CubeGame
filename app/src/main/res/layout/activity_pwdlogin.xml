@@ -61,6 +61,7 @@
                     android:id="@+id/pwdlogin_tel_et"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:inputType="number"
                     android:textColor="@color/white" />
             </android.support.design.widget.TextInputLayout>
 
@@ -85,11 +86,11 @@
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:layout_marginTop="5dp"
                 android:id="@+id/pwdlogin_sure"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/pwdlogin_pwd_et_inputLayout"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/white_btn_background"
                 android:text="@string/login"
                 android:textColor="@color/white" />
@@ -99,19 +100,18 @@
                 layout="@layout/layout_other_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_above="@id/pwdlogin_to_verifyCodeLogin"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="2dp" />
 
             <TextView
                 android:id="@+id/pwdlogin_to_verifyCodeLogin"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-
+                android:layout_alignParentBottom="true"
                 android:layout_marginTop="5dp"
                 android:background="@color/transparent"
                 android:gravity="center"
-                android:layout_alignParentBottom="true"
                 android:text="@string/toVerifyCodeLogin"
                 android:textColor="@color/white" />
         </RelativeLayout>

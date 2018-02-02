@@ -31,7 +31,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     /**
      * 文件夹目录
      */
-    private static final String PATH = Environment.getExternalStorageDirectory().getPath() + "/crash_log";
+    private static final String PATH = Environment.getExternalStorageDirectory().getPath() + "/com.yetote.cubegame";
 
     /**
      * 文件名
