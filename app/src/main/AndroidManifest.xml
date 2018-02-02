@@ -17,11 +17,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".PwdLoginActivity" />
         <activity android:name=".RegisterActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".VerifyCodeLoginActivity" />
         <activity
@@ -50,7 +46,13 @@
                 <data android:scheme="tencent1106398482" />
             </intent-filter>
         </activity>
-        <activity android:name=".GameInfoActivity"></activity>
+        <activity android:name=".GameInfoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

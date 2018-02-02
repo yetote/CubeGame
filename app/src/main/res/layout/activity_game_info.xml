@@ -33,9 +33,72 @@
     </android.support.design.widget.AppBarLayout>
 
     <RelativeLayout
+        android:id="@+id/gameinfo_rl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+        <RelativeLayout
+            android:id="@+id/gameinfo_info"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/gameinfo_info_iv"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true" />
+
+            <TextView
+                android:id="@+id/gameinfo_info_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@id/gameinfo_info_iv" />
+
+            <TextView
+                android:id="@+id/gameinfo_info_manufacturer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/gameinfo_info_title"
+                android:layout_toEndOf="@id/gameinfo_info_iv" />
+
+            <TextView
+                android:id="@+id/gameinfo_info_followNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/gameinfo_info_manufacturer"
+                android:layout_toEndOf="@id/gameinfo_info_iv" />
+
+            <Button
+                android:id="@+id/gameinfo_info_followBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@id/gameinfo_info_download" />
+
+            <Button
+                android:id="@+id/gameinfo_info_download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/gameinfo_info_scrollBtn" />
+
+            <com.demo.yetote.cubegame.utils.ScrollButton
+                android:id="@+id/gameinfo_info_scrollBtn"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true" />
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/gameinfo_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gameinfo_info" />
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>
