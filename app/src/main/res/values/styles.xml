@@ -9,14 +9,14 @@
         <item name="colorControlHighlight">@color/palegreen</item>
         <item name="colorPrimaryDark">@color/khaki</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowContentTransitions">true</item>
+        <!--<item name="android:windowContentTransitions">true</item>-->
     </style>
 
     <style name="MyTheme" parent="AppTheme">
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--<item name="android:windowBackground">@android:color/transparent</item>-->
     </style>
 
     <style name="MyTextInputLayoutCountStyle" parent="TextAppearance.Design.Counter">
@@ -35,4 +35,30 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <declare-styleable name="ScoreButton">
+        <!--评分，float类型-->
+        <attr name="score" format="float" />
+    </declare-styleable>
+
+    <style name="GameText">
+        <!--游戏信息-->
+        <item name="android:textSize">@dimen/contentSize</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="GameTextLabel" parent="GameText">
+        <!--游戏信息标签-->
+        <item name="android:layout_toStartOf">@id/fragment_game_info_strut</item>
+        <item name="android:gravity">right|center_vertical</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:layout_margin">2dp</item>
+    </style>
+
+    <style name="GameTextConent" parent="GameText">
+        <!--游戏信息内容-->
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_toEndOf">@+id/fragment_game_info_strut</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:layout_alignParentEnd">true</item>
+    </style>
 </resources>

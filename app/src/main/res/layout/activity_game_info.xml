@@ -14,7 +14,9 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            app:layout_scrollFlags="enterAlways|scroll">
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="enterAlways|scroll"
+            app:title="@string/login">
 
 
             <ImageView
@@ -28,9 +30,18 @@
             <android.support.v7.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin" />
+                app:layout_collapseMode="pin"
+                app:titleTextColor="@color/white" />
+
+
         </android.support.design.widget.CollapsingToolbarLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/gameinfo_tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </android.support.design.widget.AppBarLayout>
+
 
     <RelativeLayout
         android:id="@+id/gameinfo_rl"
@@ -87,18 +98,19 @@
                 android:layout_alignParentEnd="true"
                 android:layout_below="@id/gameinfo_info_scrollBtn" />
 
-            <com.demo.yetote.cubegame.utils.ScrollButton
+            <com.demo.yetote.cubegame.utils.ScoreButton
                 android:id="@+id/gameinfo_info_scrollBtn"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true" />
         </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/gameinfo_rv"
+            tools:listitem="@layout/item_gameinfo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_below="@+id/gameinfo_info" />
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

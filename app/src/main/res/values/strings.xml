@@ -37,4 +37,14 @@
     <string name="toVerifyCodeLogin">切换至验证码登录</string>
     <string name="toPwdLogin">切换至密码登录</string>
     <string name="sure">确定</string>
+    <string name="show_all">显示全部</string>
+    <string name="developer_word">开发者的话</string>
+    <string name="complain">投诉</string>
+    <string name="gamebc">背景介绍</string>
+    <string name="detailed">详细信息</string>
+    <string name="downloadNum">下载量</string>
+    <string name="version">版本号</string>
+    <string name="size">大小</string>
+    <string name="updateTime">更新时间</string>
+    <string name="company">开发商</string>
 </resources>
