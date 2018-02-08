@@ -20,14 +20,14 @@ import java.util.ArrayList;
  * @author Swg
  * @date 2018/1/17 14:40
  */
-public class HomePagerRVAdapter extends RecyclerView.Adapter {
+public class HomePagerRvAdapter extends RecyclerView.Adapter {
     private Context context;
     private ArrayList<HomePgaerModel> list;
     private final int HOMEPAGER_TAG_LOVE = 1;
     private final int HOMEPAGER_TAG_UNLOVE = 0;
     private final String HOMEPAGER_LOVETAG = "怀旧";
 
-    public HomePagerRVAdapter(Context context, ArrayList<HomePgaerModel> list) {
+    public HomePagerRvAdapter(Context context, ArrayList<HomePgaerModel> list) {
         this.context = context;
         this.list = list;
     }

@@ -2,19 +2,21 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:padding="5dp"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:divider="@drawable/dividers"
+        android:orientation="vertical"
+        android:showDividers="end">
 
         <RelativeLayout
-            android:layout_margin="2dp"
             android:id="@+id/fragment_game_info_developerWords"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp">
 
             <TextView
                 android:id="@+id/fragment_game_info_developerWords_label"
@@ -53,16 +55,17 @@
         </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
-            android:layout_margin="2dp"
             android:id="@+id/fragment_game_info_img"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            tools:listitem="@layout/item_game_info_pic" />
 
         <RelativeLayout
-            android:layout_margin="2dp"
             android:id="@+id/fragment_game_info_gamebc"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp">
 
             <TextView
                 android:id="@+id/fragment_game_info_gamebc_label"
@@ -100,63 +103,63 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_margin="2dp"
             android:id="@+id/fragment_game_info_detailed"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp">
 
             <view
-                android:layout_centerHorizontal="true"
                 android:id="@+id/fragment_game_info_strut"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true" />
 
             <TextView
                 android:id="@+id/fragment_game_info_detailed_label"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_alignParentTop="true"
+                android:layout_toStartOf="@id/fragment_game_info_strut"
                 android:drawableStart="@drawable/rect"
                 android:gravity="start|center"
                 android:padding="2dp"
-                android:layout_toStartOf="@id/fragment_game_info_strut"
                 android:text="@string/detailed" />
+
             <Button
                 android:id="@+id/fragment_game_info_detailed_complain"
                 android:layout_width="wrap_content"
-                android:layout_alignParentEnd="true"
                 android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:gravity="center"
                 android:background="@color/transparent"
+                android:gravity="center"
                 android:padding="2dp"
-                android:textColor="@color/textColor"
-                android:text="@string/complain" />
+                android:text="@string/complain"
+                android:textColor="@color/textColor" />
 
             <TextView
                 android:id="@+id/fragment_game_info_detailed_downloadNum_label"
                 style="@style/GameTextLabel"
-                android:text="@string/downloadNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/fragment_game_info_detailed_label" />
+                android:layout_below="@+id/fragment_game_info_detailed_label"
+                android:text="@string/downloadNum" />
 
             <TextView
                 android:id="@+id/fragment_game_info_detailed_downloadNum_content"
                 style="@style/GameTextConent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/fragment_game_info_detailed_label"
-                 />
+                android:layout_below="@+id/fragment_game_info_detailed_label" />
 
             <TextView
                 android:id="@+id/fragment_game_info_detailed_version_label"
                 style="@style/GameTextLabel"
-                android:text="@string/version"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/fragment_game_info_detailed_downloadNum_label" />
+                android:layout_below="@+id/fragment_game_info_detailed_downloadNum_label"
+                android:text="@string/version" />
 
             <TextView
                 android:id="@+id/fragment_game_info_detailed_version_content"
@@ -168,10 +171,10 @@
             <TextView
                 android:id="@+id/fragment_game_info_detailed_size_label"
                 style="@style/GameTextLabel"
-                android:text="@string/size"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/fragment_game_info_detailed_version_content" />
+                android:layout_below="@+id/fragment_game_info_detailed_version_content"
+                android:text="@string/size" />
 
             <TextView
                 android:id="@+id/fragment_game_info_detailed_size_content"
@@ -183,10 +186,10 @@
             <TextView
                 android:id="@+id/fragment_game_info_detailed_updateTime_label"
                 style="@style/GameTextLabel"
-                android:text="@string/updateTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/fragment_game_info_detailed_size_content" />
+                android:layout_below="@+id/fragment_game_info_detailed_size_content"
+                android:text="@string/updateTime" />
 
             <TextView
                 android:id="@+id/fragment_game_info_detailed_updateTime_content"
@@ -196,15 +199,15 @@
                 android:layout_below="@+id/fragment_game_info_detailed_size_content" />
 
             <TextView
-                android:id="@+id/fragment_game_info_detailed_company_label"
+                android:id="@+id/fragment_game_info_detailed_manufacturer_label"
                 style="@style/GameTextLabel"
-                android:text="@string/company"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/fragment_game_info_detailed_updateTime_content" />
+                android:layout_below="@+id/fragment_game_info_detailed_updateTime_content"
+                android:text="@string/company" />
 
             <TextView
-                android:id="@+id/fragment_game_info_detailed_company_content"
+                android:id="@+id/fragment_game_info_detailed_manufacturer_content"
                 style="@style/GameTextConent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -213,9 +216,10 @@
         </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
-            android:layout_margin="2dp"
-            android:id="@+id/fragment_game_info_companyTheme"
+            android:id="@+id/fragment_game_info_manufacturerTheme"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            tools:listitem="@layout/item_game_info_theme" />
     </LinearLayout>
 </ScrollView>

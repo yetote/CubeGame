@@ -42,9 +42,10 @@
     <string name="complain">投诉</string>
     <string name="gamebc">背景介绍</string>
     <string name="detailed">详细信息</string>
-    <string name="downloadNum">下载量</string>
-    <string name="version">版本号</string>
-    <string name="size">大小</string>
-    <string name="updateTime">更新时间</string>
-    <string name="company">开发商</string>
+    <string name="downloadNum">下载量:</string>
+    <string name="version">版本号:</string>
+    <string name="size">大小:</string>
+    <string name="updateTime">更新时间:</string>
+    <string name="company">开发商:</string>
+    <string name="unfollow">未关注</string>
 </resources>

@@ -19,13 +19,14 @@
             app:title="@string/login">
 
 
-            <ImageView
+            <VideoView
+                android:id="@+id/gameinfo_video"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.7"
-                tools:src="@tools:sample/backgrounds/scenic" />
+                 />
 
             <android.support.v7.widget.Toolbar
                 android:layout_width="match_parent"
@@ -52,7 +53,7 @@
         <RelativeLayout
             android:id="@+id/gameinfo_info"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="140dp"
             android:padding="10dp">
 
             <ImageView
@@ -60,57 +61,80 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true" />
+                android:layout_alignParentTop="true"
+                android:scaleType="centerCrop"
+                tools:src="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/gameinfo_info_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_toEndOf="@id/gameinfo_info_iv" />
+                android:layout_margin="2dp"
+                android:layout_toEndOf="@id/gameinfo_info_iv"
+                android:layout_toStartOf="@id/gameinfo_info_scoreBtn"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:padding="2dp"
+                android:textSize="@dimen/titleSize"
+                tools:text="@string/test_title" />
 
             <TextView
                 android:id="@+id/gameinfo_info_manufacturer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/gameinfo_info_title"
-                android:layout_toEndOf="@id/gameinfo_info_iv" />
+                android:layout_margin="2dp"
+                android:layout_toEndOf="@id/gameinfo_info_iv"
+                android:padding="2dp"
+                android:textSize="@dimen/contentSize"
+                tools:text="@tools:sample/full_names" />
 
             <TextView
                 android:id="@+id/gameinfo_info_followNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/gameinfo_info_manufacturer"
-                android:layout_toEndOf="@id/gameinfo_info_iv" />
+                android:layout_margin="2dp"
+                android:layout_toEndOf="@id/gameinfo_info_iv"
+                android:padding="2dp"
+                android:textColor="@color/textColor"
+                tools:text="1.8万次" />
 
             <Button
                 android:id="@+id/gameinfo_info_followBtn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_alignParentBottom="true"
-                android:layout_toStartOf="@id/gameinfo_info_download" />
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@id/gameinfo_info_download"
+                android:background="@color/transparent"
+                android:drawableStart="@mipmap/unfollow"
+                android:text="@string/unfollow"
+                android:textColor="@color/textColor" />
 
             <Button
                 android:id="@+id/gameinfo_info_download"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
-                android:layout_below="@id/gameinfo_info_scrollBtn" />
+                android:background="@drawable/download_btn_bc"
+                android:text="@string/download"
+                android:textColor="@color/white" />
 
             <com.demo.yetote.cubegame.utils.ScoreButton
-                android:id="@+id/gameinfo_info_scrollBtn"
+                android:id="@+id/gameinfo_info_scoreBtn"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true" />
         </RelativeLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/gameinfo_rv"
-            tools:listitem="@layout/item_gameinfo"
+        <android.support.v4.view.ViewPager
+            android:id="@+id/gameinfo_viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/gameinfo_info" />
+            android:layout_below="@id/gameinfo_info" />
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

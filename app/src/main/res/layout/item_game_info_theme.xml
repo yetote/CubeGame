@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/item_game_info_theme_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/titleSize"
+        tools:text="@tools:sample/full_names" />
+
+    <TextView
+        android:id="@+id/item_game_info_theme_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_game_info_theme_title"
+        android:ellipsize="end"
+        android:maxLines="6"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/contentSize"
+        tools:text="@tools:sample/lorem" />
+
+    <TextView
+        android:id="@+id/item_game_info_theme_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/item_game_info_theme_content"
+        android:textColor="@color/gray_cc"
+        android:textSize="@dimen/contentSize"
+        tools:text="@tools:sample/cities" />
+
+    <TextView
+        android:id="@+id/item_game_info_theme_discussNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/item_game_info_theme_content"
+        android:textColor="@color/gray_cc"
+        android:textSize="@dimen/contentSize"
+        tools:text="@tools:sample/date/ddmmyy" />
+</RelativeLayout>

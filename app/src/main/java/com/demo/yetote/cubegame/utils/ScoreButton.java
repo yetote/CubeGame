@@ -22,25 +22,33 @@ import com.demo.yetote.cubegame.R;
  */
 public class ScoreButton extends View {
     private Context context;
-    //小圆画笔
+    /**
+     * 小圆画笔
+     */
     private Paint smallCirclePaint;
-    //大圆画笔
+    /**
+     * 大圆画笔
+     */
     private Paint bigCirclePaint;
-    //评分画笔
+    /**
+     * 评分画笔
+     */
     private Paint textPaint, scorePaint;
     private float smallCircleRadius, bigCircleRadius;
     private int centerX, centerY;
     private int width, height;
     private int textSize, scoreSize;
-    private static final String TAG = "ScrollButton";
     private float score;
 
     public ScoreButton(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+
         this.context = context;
+
         TypedArray ta = context.obtainStyledAttributes(R.styleable.ScoreButton);
         score = ta.getFloat(R.styleable.ScoreButton_score, 0);
         ta.recycle();
+
         initData();
     }
 
