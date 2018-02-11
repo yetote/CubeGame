@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    tools:context="com.demo.yetote.cubegame.RegisterActivity">
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/register_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/login"
+        android:transitionName="loginFab" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/register_cardView"
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        app:cardBackgroundColor="@color/colorPrimary">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/register_symbol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="@string/register"
+                android:textColor="@color/textColor"
+                android:textSize="25sp" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/register_tel_et_inputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_symbol"
+                android:hint="@string/tel"
+                android:textColorHint="@color/white"
+                app:counterEnabled="true"
+                app:counterMaxLength="11"
+                app:counterOverflowTextAppearance="@style/MyTextInputLayoutCountOverFlowStyle"
+                app:counterTextAppearance="@style/MyTextInputLayoutCountStyle"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/MyTextInputLayoutErrorStyle"
+                app:hintEnabled="true">
+
+                <EditText
+                    android:id="@+id/register_tel_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:textColor="@color/white" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/register_verifyCode_et_inputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/register_tel_et_inputLayout"
+                android:layout_toStartOf="@id/register_getVerifyCode_btn"
+                android:hint="@string/verify_code"
+                android:textColorHint="@color/white"
+                app:counterEnabled="true"
+                app:counterMaxLength="6"
+                app:counterOverflowTextAppearance="@style/MyTextInputLayoutCountOverFlowStyle"
+                app:counterTextAppearance="@style/MyTextInputLayoutCountStyle"
+                app:errorTextAppearance="@style/MyTextInputLayoutErrorStyle"
+                app:hintEnabled="true">
+
+                <EditText
+                    android:id="@+id/register_verifyCode_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:textColor="@color/white" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/register_getVerifyCode_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/register_tel_et_inputLayout"
+                android:background="@drawable/get_verifycode_btn_background"
+                android:text="@string/get_verifyCode"
+                android:textColor="@color/textColor" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/register_pwd_et_inputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_verifyCode_et_inputLayout"
+                android:textColorHint="@color/white"
+                app:counterOverflowTextAppearance="@style/MyTextInputLayoutCountOverFlowStyle"
+                app:counterTextAppearance="@style/MyTextInputLayoutCountStyle"
+                app:errorTextAppearance="@style/MyTextInputLayoutErrorStyle"
+                app:hintEnabled="true">
+
+                <EditText
+                    android:id="@+id/register_pwd_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/pwd"
+                    android:inputType="textPassword"
+                    android:textColor="@color/white" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/register_sure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_pwd_et_inputLayout"
+                android:background="@drawable/white_btn_background"
+                android:text="@string/sure"
+                android:textColor="@color/white" />
+
+            <include
+                android:id="@+id/register_other_login"
+                layout="@layout/layout_other_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_sure"
+                android:layout_marginTop="2dp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
