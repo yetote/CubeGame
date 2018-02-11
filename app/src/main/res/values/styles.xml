@@ -61,4 +61,10 @@
         <item name="android:gravity">left|center_vertical</item>
         <item name="android:layout_alignParentEnd">true</item>
     </style>
+    <declare-styleable name="ExcellentButton">
+        <attr name="excellentButton_isChecked" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="BadButton">
+        <attr name="badButton_isChecked" format="boolean" />
+    </declare-styleable>
 </resources>

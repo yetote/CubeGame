@@ -73,5 +73,4 @@ public class GameInfoFragment extends Fragment {
         gameBcShowMore = v.findViewById(R.id.fragment_game_info_gamebc_showMore);
     }
 
-
 }
