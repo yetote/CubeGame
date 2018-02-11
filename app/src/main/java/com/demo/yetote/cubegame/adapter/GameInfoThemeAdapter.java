@@ -58,7 +58,6 @@ public class GameInfoThemeAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.item_game_info_theme, parent, false);
-
         return new MyViewHolder(v);
     }
 
@@ -69,7 +68,6 @@ public class GameInfoThemeAdapter extends RecyclerView.Adapter {
         vh.getTitle().setText(list.get(position).getTitle());
         vh.getTime().setText(list.get(position).getTime());
         vh.getDiscussNum().setText(list.get(position).getDiscussNum());
-
     }
 
     @Override
