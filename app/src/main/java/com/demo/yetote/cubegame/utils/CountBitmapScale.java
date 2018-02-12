@@ -20,18 +20,18 @@ class CountBitmapScale {
      * @param height 期望位图的高
      * @return 变换之后的位图
      */
-    static public Bitmap count(Bitmap bitmap, int width, int height) {
-        int bitmapWidth = bitmap.getWidth();
-        int bitmapHeight = bitmap.getHeight();
+    static public Bitmap count(Bitmap bitmap, int  width, int height) {
+        float bitmapWidth = bitmap.getWidth();
+        float bitmapHeight = bitmap.getHeight();
 
         float scaleWidth = width / bitmapWidth;
         float scaleHeight = height / bitmapHeight;
 
 
         Matrix matrix = new Matrix();
-        matrix.postScale(scaleWidth, scaleHeight);
+        matrix.postScale(scaleHeight, scaleHeight);
 
-        return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+        return Bitmap.createBitmap(bitmap, 0, 0, (int)bitmapWidth, (int)bitmapHeight, matrix, true);
     }
 
 }

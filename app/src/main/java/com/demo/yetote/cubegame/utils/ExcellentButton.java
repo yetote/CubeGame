@@ -1,5 +1,6 @@
 package com.demo.yetote.cubegame.utils;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -11,8 +12,10 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 
 import com.demo.yetote.cubegame.R;
+
 
 /**
  * com.demo.yetote.cubegame.utils
@@ -28,22 +31,32 @@ public class ExcellentButton extends View {
     private Paint unExcellentTextPaint, excellentTextPaint;
     private int width, height;
     private Boolean isChecked;
+    private static final String TAG = "ExcellentButton";
+    private final int textSize = 50;
     /**
      * 图片旋转角度
      */
     private int rotate = 0;
 
+    public void setRotate(int rotate) {
+        this.rotate = rotate;
+        invalidate();
+    }
 
-    public ExcellentButton(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-
+    public ExcellentButton(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
         this.context = context;
 
         TypedArray ta = context.obtainStyledAttributes(R.styleable.ExcellentButton);
-        isChecked = ta.getBoolean(R.styleable.ExcellentButton_excellentButton_isChecked, false);
+        isChecked = ta.getBoolean(R.styleable.ExcellentButton_excellentButton_isChecked, true);
+        rotate = ta.getInt(R.styleable.ExcellentButton_rotate, 0);
         ta.recycle();
 
         initData();
+    }
+
+    public ExcellentButton(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
     }
 
     private void initData() {
@@ -53,15 +66,16 @@ public class ExcellentButton extends View {
         unExcellentTextPaint.setColor(ContextCompat.getColor(context, R.color.gray));
         //设置文字的基点为中心点
         unExcellentTextPaint.setTextAlign(Paint.Align.CENTER);
+        unExcellentTextPaint.setTextSize(textSize);
 
         excellentTextPaint = new Paint();
         excellentTextPaint.setColor(ContextCompat.getColor(context, R.color.textColor));
         excellentTextPaint.setTextAlign(Paint.Align.CENTER);
-
+        excellentTextPaint.setTextSize(textSize);
+        excellentTextPaint.setStrokeWidth(10);
 
         unExcellentBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.un_excellent);
         excellentBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.excellent);
-
 
     }
 
@@ -70,7 +84,6 @@ public class ExcellentButton extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         width = MeasureSpec.getSize(widthMeasureSpec);
         height = MeasureSpec.getSize(heightMeasureSpec);
-
     }
 
     @Override
@@ -92,29 +105,37 @@ public class ExcellentButton extends View {
      * @param text   按钮的文字
      */
     private void drawBitmap(Canvas canvas, Bitmap bitmap, String text, Paint paint) {
-        Bitmap newBitmap = CountBitmapScale.count(bitmap, width, height);
+//        Bitmap newBitmap = CountBitmapScale.count(bitmap, width, height);
 
         canvas.save();
-        canvas.clipRect(0, 0, newBitmap.getWidth(), newBitmap.getHeight());
+        canvas.clipRect(0,
+                0,
+                getRight(),
+                getBottom());
+        canvas.drawColor(Color.BLACK);
         //绘制经过变换之后的位图
-        canvas.drawBitmap(newBitmap, 0, 0, paint);
-        canvas.rotate(rotate);
+        canvas.rotate(-rotate);
+        canvas.drawBitmap(bitmap, 0, (height - bitmap.getHeight()) / 2, paint);
         canvas.restore();
-        canvas.drawText(text, (width - newBitmap.getWidth()) / 2, height, paint);
+        canvas.drawLine(0, getHeight()/2 , getWidth(), getHeight()/2 , excellentTextPaint);
+        canvas.drawLine( getWidth() / 2,0,   getWidth() / 2, getHeight(),excellentTextPaint);
+        canvas.drawText(text,
+                (width - bitmap.getWidth()) / 2 + bitmap.getWidth()*2 - textSize,
+                (height + textSize)/2,
+                paint);
     }
 
 
     /**
      * 绘制按钮按下时的动画
      */
-    private void drawPressAnimation() {
-        if (!isChecked) {
-            for (; rotate <= 45; ) rotate++;
+    public void drawPressAnimation() {
+        ObjectAnimator animator = ObjectAnimator.ofInt(this,
+                "rotate",
+                0, 30, 0);
+        animator.setDuration(1000);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.start();
 
-            if (rotate >= 45) for (; rotate >= 0; ) rotate--;
-            postInvalidate();
-        } else {
-
-        }
     }
 }
