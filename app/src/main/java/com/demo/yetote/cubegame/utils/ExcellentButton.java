@@ -6,7 +6,6 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -27,7 +26,6 @@ import com.demo.yetote.cubegame.R;
 public class ExcellentButton extends View {
     private Context context;
     private Bitmap unExcellentBitmap, excellentBitmap;
-    private Paint bitmapPaint;
     private Paint unExcellentTextPaint, excellentTextPaint;
     private int width, height;
     private Boolean isChecked;
@@ -49,7 +47,7 @@ public class ExcellentButton extends View {
 
         TypedArray ta = context.obtainStyledAttributes(R.styleable.ExcellentButton);
         isChecked = ta.getBoolean(R.styleable.ExcellentButton_excellentButton_isChecked, true);
-        rotate = ta.getInt(R.styleable.ExcellentButton_rotate, 0);
+        rotate = ta.getInt(R.styleable.ExcellentButton_excellentButton_rotate, 0);
         ta.recycle();
 
         initData();
@@ -60,7 +58,6 @@ public class ExcellentButton extends View {
     }
 
     private void initData() {
-        bitmapPaint = new Paint();
 
         unExcellentTextPaint = new Paint();
         unExcellentTextPaint.setColor(ContextCompat.getColor(context, R.color.gray));
@@ -92,7 +89,7 @@ public class ExcellentButton extends View {
         if (isChecked) {
             drawBitmap(canvas, excellentBitmap, "喜欢", excellentTextPaint);
         } else {
-            drawBitmap(canvas, unExcellentBitmap, "不喜欢", unExcellentTextPaint);
+            drawBitmap(canvas, unExcellentBitmap, "取消", unExcellentTextPaint);
         }
     }
 
@@ -105,24 +102,38 @@ public class ExcellentButton extends View {
      * @param text   按钮的文字
      */
     private void drawBitmap(Canvas canvas, Bitmap bitmap, String text, Paint paint) {
-//        Bitmap newBitmap = CountBitmapScale.count(bitmap, width, height);
+        if (isChecked) {
+            canvas.save();
 
-        canvas.save();
-        canvas.clipRect(0,
-                0,
-                getRight(),
-                getBottom());
-        canvas.drawColor(Color.BLACK);
-        //绘制经过变换之后的位图
-        canvas.rotate(-rotate);
-        canvas.drawBitmap(bitmap, 0, (height - bitmap.getHeight()) / 2, paint);
-        canvas.restore();
-        canvas.drawLine(0, getHeight()/2 , getWidth(), getHeight()/2 , excellentTextPaint);
-        canvas.drawLine( getWidth() / 2,0,   getWidth() / 2, getHeight(),excellentTextPaint);
-        canvas.drawText(text,
-                (width - bitmap.getWidth()) / 2 + bitmap.getWidth()*2 - textSize,
-                (height + textSize)/2,
-                paint);
+            canvas.clipRect(0,
+                    0,
+                    getRight(),
+                    getBottom());
+            canvas.rotate(-rotate);
+            canvas.drawBitmap(bitmap, 0, (height - bitmap.getHeight()) / 2, paint);
+
+            canvas.restore();
+
+            canvas.drawLine(0, getHeight() / 2, getWidth(), getHeight() / 2, excellentTextPaint);
+            canvas.drawLine(getWidth() / 2, 0, getWidth() / 2, getHeight(), excellentTextPaint);
+            canvas.drawLine(((width - bitmap.getWidth()) / 2 + bitmap.getWidth() - textSize), 0, ((width - bitmap.getWidth()) / 2 - textSize + bitmap.getWidth()), height, excellentTextPaint);
+
+            canvas.drawText(text,
+                    (width - bitmap.getWidth()) / 2 + bitmap.getWidth(),
+                    (height + textSize) / 2,
+                    paint);
+        } else {
+            canvas.drawBitmap(bitmap, 0, (height - bitmap.getHeight()) / 2, paint);
+
+            canvas.drawLine(0, getHeight() / 2, getWidth(), getHeight() / 2, excellentTextPaint);
+            canvas.drawLine(getWidth() / 2, 0, getWidth() / 2, getHeight(), excellentTextPaint);
+            canvas.drawLine(((width - bitmap.getWidth()) / 2 + bitmap.getWidth() - textSize), 0, ((width - bitmap.getWidth()) / 2 - textSize + bitmap.getWidth()), height, excellentTextPaint);
+
+            canvas.drawText(text,
+                    (width - bitmap.getWidth()) / 2 + bitmap.getWidth(),
+                    (height + textSize) / 2,
+                    paint);
+        }
     }
 
 
@@ -137,5 +148,6 @@ public class ExcellentButton extends View {
         animator.setInterpolator(new LinearInterpolator());
         animator.start();
 
+        isChecked = !isChecked;
     }
 }

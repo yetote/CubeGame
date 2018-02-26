@@ -23,5 +23,6 @@ public class GameDiscussFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_game_discuss, container, false);
         return v;
+        // TODO: 2018/2/7 游戏评论
     }
 }

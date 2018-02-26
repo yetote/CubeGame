@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#152d46</color>
     <color name="colorPrimaryDark">#152d46</color>
-        <color name="colorAccent">#039BE5</color>
+    <color name="colorAccent">#039BE5</color>
     <color name="textColor">#039BE5</color>
     <color name="verifyLoginColor">#322F50</color>
     <color name="transparent">#00000000</color><!--透明色 -->

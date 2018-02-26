@@ -21,5 +21,6 @@ public class CommunityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_community, container,false);
         return v;
+        // TODO: 2018/1/16 社区fragment
     }
 }

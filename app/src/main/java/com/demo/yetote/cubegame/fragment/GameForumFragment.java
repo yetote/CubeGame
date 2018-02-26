@@ -21,5 +21,6 @@ public class GameForumFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_game_forum, container, false);
         return v;
+        // TODO: 2018/2/7 游戏论坛fragment
     }
 }

@@ -16,6 +16,7 @@ import com.demo.yetote.cubegame.R;
 
 /**
  * com.demo.yetote.cubegame.utils
+ * 评分按钮
  *
  * @author Swg
  * @date 2018/2/2 16:06

@@ -22,5 +22,6 @@ public class BoonFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_boon, container,false);
         return v;
+        // TODO: 2018/1/16 福利fragment
     }
 }
