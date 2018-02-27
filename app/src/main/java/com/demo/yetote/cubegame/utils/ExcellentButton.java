@@ -30,7 +30,7 @@ public class ExcellentButton extends View {
     private int width, height;
     private Boolean isChecked;
     private static final String TAG = "ExcellentButton";
-    private final int textSize = 50;
+    private final int textSize = 30;
     /**
      * 图片旋转角度
      */

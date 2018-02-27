@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/item_discuss_iv"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/item_discuss_people"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@id/item_discuss_iv"
+                android:ellipsize="end"
+                android:gravity="center|start"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:layout_toStartOf="@id/item_discuss_report"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/titleSize"
+                tools:text="@tools:sample/full_names" />
+
+            <TextView
+                android:id="@+id/item_discuss_report"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@id/item_discuss_date"
+                android:gravity="center|start"
+                android:padding="5dp"
+                android:text="@string/report" />
+
+            <TextView
+                android:id="@+id/item_discuss_date"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:padding="5dp"
+                tools:text="九个月前" />
+
+            <TextView
+                tools:text="@tools:sample/lorem"
+                android:id="@+id/item_discuss_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_discuss_iv"
+                android:ellipsize="end"
+                android:maxLines="7"
+                android:textSize="@dimen/contentSize" />
+
+            <TextView
+                android:id="@+id/item_discuss_showMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/item_discuss_content"
+                android:text="@string/show_all"
+                android:textColor="@color/textColor" />
+
+            <RelativeLayout
+                android:id="@+id/item_discuss_evaluate_rl"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/item_discuss_showMore"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/item_discuss_evaluate_mobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:drawableStart="@mipmap/phone" />
+
+                <com.demo.yetote.cubegame.utils.ExcellentButton
+                    android:id="@+id/item_discuss_evaluate_excellent"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_toStartOf="@id/item_discuss_evaluate_bad" />
+
+                <com.demo.yetote.cubegame.utils.BadButton
+                    android:id="@+id/item_discuss_evaluate_bad"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_toStartOf="@id/item_discuss_evaluate_discussNum" />
+
+                <TextView
+                    android:id="@+id/item_discuss_evaluate_discussNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:drawableStart="@mipmap/discuss"
+                    android:gravity="center"
+                    android:text="2" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/item_discuss_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_discuss_evaluate_rl"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/item_discuss_ll_discussInfo_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/item_discuss_discussPeople"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/contentSize" />
+
+                    <TextView
+                        android:id="@+id/item_discuss_discussInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/contentSize" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

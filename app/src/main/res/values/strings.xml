@@ -48,4 +48,5 @@
     <string name="updateTime">更新时间:</string>
     <string name="company">开发商:</string>
     <string name="unfollow">未关注</string>
+    <string name="report">举报</string>
 </resources>
