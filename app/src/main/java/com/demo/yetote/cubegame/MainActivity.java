@@ -5,12 +5,10 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toolbar;
 
-
-import com.demo.yetote.cubegame.adapter.HomePagerViewPagerAdapter;
+import com.demo.yetote.cubegame.adapter.viewpager.HomePagerViewPagerAdapter;
 import com.demo.yetote.cubegame.fragment.BoonFragment;
 import com.demo.yetote.cubegame.fragment.CommunityFragment;
 import com.demo.yetote.cubegame.fragment.GameLibFragment;

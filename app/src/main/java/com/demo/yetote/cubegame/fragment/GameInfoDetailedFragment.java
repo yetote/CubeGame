@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.demo.yetote.cubegame.R;
-import com.demo.yetote.cubegame.adapter.GameInfoPicAdapter;
-import com.demo.yetote.cubegame.adapter.GameInfoThemeAdapter;
+
+import com.demo.yetote.cubegame.adapter.recyclerview.GameInfoPicAdapter;
+import com.demo.yetote.cubegame.adapter.recyclerview.GameInfoThemeAdapter;
 import com.demo.yetote.cubegame.model.GameInfoPicModel;
 import com.demo.yetote.cubegame.model.GameInfoThemeModel;
 
@@ -21,12 +23,12 @@ import java.util.ArrayList;
 
 /**
  * com.demo.yetote.cubegame.fragment
- * 游戏信息
+ * 游戏信息详情
  *
  * @author Swg
  * @date 2018/2/7 14:27
  */
-public class GameInfoFragment extends Fragment {
+public class GameInfoDetailedFragment extends Fragment {
     private RecyclerView picRv;
     private RecyclerView themeRv;
     private TextView developerWordsContent, gameBcContent, downloadNum, version, apkSize, manufacturer;
@@ -35,14 +37,14 @@ public class GameInfoFragment extends Fragment {
     private GameInfoThemeAdapter themeAdapter;
     private ArrayList<GameInfoPicModel> picList;
     private ArrayList<GameInfoThemeModel> themeList;
-
+    private static final String TAG = "GameInfoDetailedFragmen";
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_game_info, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_gameinfo_detailed, container, false);
         initViews(v);
         initData();
-
+        Log.e(TAG, "onCreateView: "+"a" );
         picRv.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         picAdapter = new GameInfoPicAdapter(getActivity(), picList);
         picRv.setAdapter(picAdapter);

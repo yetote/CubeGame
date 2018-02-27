@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.demo.yetote.cubegame.R;
-import com.demo.yetote.cubegame.adapter.HomePagerRvAdapter;
+import com.demo.yetote.cubegame.adapter.recyclerview.HomePagerRvAdapter;
 import com.demo.yetote.cubegame.model.HomePgaerModel;
 
 import java.util.ArrayList;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,7 +26,6 @@
                 android:drawableStart="@drawable/rect"
                 android:gravity="center"
                 android:padding="2dp"
-
                 android:text="@string/developer_word" />
 
             <TextView
@@ -108,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp">
 
-            <view
+            <View
                 android:id="@+id/fragment_game_info_strut"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -147,7 +146,7 @@
 
             <TextView
                 android:id="@+id/fragment_game_info_detailed_downloadNum_content"
-                style="@style/GameTextConent"
+                style="@style/GameTextContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/fragment_game_info_detailed_label" />
@@ -163,7 +162,7 @@
 
             <TextView
                 android:id="@+id/fragment_game_info_detailed_version_content"
-                style="@style/GameTextConent"
+                style="@style/GameTextContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/fragment_game_info_detailed_downloadNum_content" />
@@ -178,7 +177,7 @@
 
             <TextView
                 android:id="@+id/fragment_game_info_detailed_size_content"
-                style="@style/GameTextConent"
+                style="@style/GameTextContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/fragment_game_info_detailed_version_content" />
@@ -193,7 +192,7 @@
 
             <TextView
                 android:id="@+id/fragment_game_info_detailed_updateTime_content"
-                style="@style/GameTextConent"
+                style="@style/GameTextContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/fragment_game_info_detailed_size_content" />
@@ -208,7 +207,7 @@
 
             <TextView
                 android:id="@+id/fragment_game_info_detailed_manufacturer_content"
-                style="@style/GameTextConent"
+                style="@style/GameTextContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/fragment_game_info_detailed_updateTime_content" />
@@ -222,4 +221,4 @@
             android:layout_margin="2dp"
             tools:listitem="@layout/item_game_info_theme" />
     </LinearLayout>
-</ScrollView>
+</RelativeLayout>

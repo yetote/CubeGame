@@ -7,7 +7,7 @@
         <item name="android:colorControlNormal">@color/white</item>
         <item name="colorControlActivated">@color/white</item>
         <item name="colorControlHighlight">@color/palegreen</item>
-        <item name="colorPrimaryDark">@color/khaki</item>
+        <item name="colorPrimaryDark">@color/cadetblue</item>
         <item name="colorAccent">@color/colorAccent</item>
         <!--<item name="android:windowContentTransitions">true</item>-->
     </style>
@@ -54,7 +54,7 @@
         <item name="android:layout_margin">2dp</item>
     </style>
 
-    <style name="GameTextConent" parent="GameText">
+    <style name="GameTextContent" parent="GameText">
         <!--游戏信息内容-->
         <item name="android:layout_margin">2dp</item>
         <item name="android:layout_toEndOf">@+id/fragment_game_info_strut</item>
