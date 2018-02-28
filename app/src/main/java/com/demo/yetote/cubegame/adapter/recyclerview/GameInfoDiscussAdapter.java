@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -31,23 +32,32 @@ public class GameInfoDiscussAdapter extends RecyclerView.Adapter {
         this.context = context;
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    private class MyViewHolder extends RecyclerView.ViewHolder {
         private CircleImageView iv;
-        private TextView name, date, content, discussNum, badButton, excellentButton, phone, discussPeople, discussContent;
+        private TextView name, date, content, discussNum, badButton, excellentButton, phone, discussPeople1, discussContent1, discussPeople2, discussContent2;
+        private LinearLayout discussLl1, discussLl2;
+
+        private LinearLayout getDiscussLl1() {
+            return discussLl1;
+        }
+
+        private LinearLayout getDiscussLl2() {
+            return discussLl2;
+        }
 
         private CircleImageView getIv() {
             return iv;
         }
 
-        public TextView getName() {
+        private TextView getName() {
             return name;
         }
 
-        public TextView getDate() {
+        private TextView getDate() {
             return date;
         }
 
-        public TextView getContent() {
+        private TextView getContent() {
             return content;
         }
 
@@ -63,16 +73,24 @@ public class GameInfoDiscussAdapter extends RecyclerView.Adapter {
             return excellentButton;
         }
 
-        public TextView getPhone() {
+        private TextView getPhone() {
             return phone;
         }
 
-        private TextView getDiscussPeople() {
-            return discussPeople;
+        private TextView getDiscussPeople1() {
+            return discussPeople1;
         }
 
-        private TextView getDiscussContent() {
-            return discussContent;
+        private TextView getDiscussContent1() {
+            return discussContent1;
+        }
+
+        private TextView getDiscussPeople2() {
+            return discussPeople2;
+        }
+
+        private TextView getDiscussContent2() {
+            return discussContent2;
         }
 
         private MyViewHolder(View itemView) {
@@ -85,9 +103,12 @@ public class GameInfoDiscussAdapter extends RecyclerView.Adapter {
             badButton = itemView.findViewById(R.id.item_discuss_evaluate_bad);
             excellentButton = itemView.findViewById(R.id.item_discuss_evaluate_excellent);
             phone = itemView.findViewById(R.id.item_discuss_evaluate_mobile);
-            discussPeople = itemView.findViewById(R.id.item_discuss_discussPeople);
-            discussContent = itemView.findViewById(R.id.item_discuss_discussInfo);
-
+            discussPeople1 = itemView.findViewById(R.id.item_discuss_discussPeople);
+            discussContent1 = itemView.findViewById(R.id.item_discuss_discussInfo);
+            discussPeople2 = itemView.findViewById(R.id.item_discuss_discussPeople2);
+            discussContent2 = itemView.findViewById(R.id.item_discuss_discussInfo2);
+            discussLl1 = itemView.findViewById(R.id.item_discuss_ll_discussInfo_ll);
+            discussLl2 = itemView.findViewById(R.id.item_discuss_ll_discussInfo_ll2);
         }
     }
 
@@ -108,8 +129,18 @@ public class GameInfoDiscussAdapter extends RecyclerView.Adapter {
         vh.getBadButton().setText(list.get(position).getBadNum());
         vh.getExcellentButton().setText(list.get(position).getExcellentNum());
         vh.getPhone().setText(list.get(position).getPhone());
-        vh.getDiscussPeople().setText(list.get(position).getDiscussPeople());
-        vh.getDiscussContent().setText(list.get(position).getDiscussContent());
+        if (list.get(position).getDiscussPeople() == null) {
+            vh.getDiscussLl1().setVisibility(View.GONE);
+            vh.getDiscussLl2().setVisibility(View.GONE);
+        } else if (list.get(position).getDiscussPeople() != null && list.get(position).getDiscussPeople2() != null) {
+            vh.getDiscussPeople1().setText(list.get(position).getDiscussPeople());
+            vh.getDiscussContent1().setText(list.get(position).getDiscussContent());
+            vh.getDiscussContent2().setText(list.get(position).getDiscussContent2());
+            vh.getDiscussPeople2().setText(list.get(position).getDiscussPeople2());
+        } else {
+            vh.getDiscussPeople1().setText(list.get(position).getDiscussPeople());
+            vh.getDiscussContent1().setText(list.get(position).getDiscussContent());
+        }
         vh.itemView.setTag(list.get(position).getId());
     }
 

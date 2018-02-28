@@ -114,20 +114,12 @@ public class ExcellentButton extends View {
 
             canvas.restore();
 
-            canvas.drawLine(0, getHeight() / 2, getWidth(), getHeight() / 2, excellentTextPaint);
-            canvas.drawLine(getWidth() / 2, 0, getWidth() / 2, getHeight(), excellentTextPaint);
-            canvas.drawLine(((width - bitmap.getWidth()) / 2 + bitmap.getWidth() - textSize), 0, ((width - bitmap.getWidth()) / 2 - textSize + bitmap.getWidth()), height, excellentTextPaint);
-
             canvas.drawText(text,
                     (width - bitmap.getWidth()) / 2 + bitmap.getWidth(),
                     (height + textSize) / 2,
                     paint);
         } else {
             canvas.drawBitmap(bitmap, 0, (height - bitmap.getHeight()) / 2, paint);
-
-            canvas.drawLine(0, getHeight() / 2, getWidth(), getHeight() / 2, excellentTextPaint);
-            canvas.drawLine(getWidth() / 2, 0, getWidth() / 2, getHeight(), excellentTextPaint);
-            canvas.drawLine(((width - bitmap.getWidth()) / 2 + bitmap.getWidth() - textSize), 0, ((width - bitmap.getWidth()) / 2 - textSize + bitmap.getWidth()), height, excellentTextPaint);
 
             canvas.drawText(text,
                     (width - bitmap.getWidth()) / 2 + bitmap.getWidth(),

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginBottom="10dp"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/item_gameinfo_forum_headImg"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/item_gameinfo_forum_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        android:layout_toEndOf="@id/item_gameinfo_forum_headImg"
+        android:textColor="@color/black"
+        tools:text="@tools:sample/full_names" />
+
+    <TextView
+        android:id="@+id/item_gameinfo_forum_seeNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/item_gameinfo_forum_name"
+        android:layout_margin="5dp"
+        tools:text="1274次游览" />
+
+    <ImageView
+        android:id="@+id/item_gameinfo_forum_contentImg"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@id/item_gameinfo_forum_seeNum"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="-5dp"
+        android:layout_marginStart="-5dp"
+        android:layout_marginTop="5dp"
+        android:scaleType="centerCrop"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/item_gameinfo_forum_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_gameinfo_forum_contentImg"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/titleSize"
+        tools:text="@tools:sample/lorem" />
+
+    <TextView
+        android:id="@+id/item_gameinfo_forum_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_gameinfo_forum_title"
+        android:padding="5dp"
+        android:textSize="@dimen/contentSize"
+        tools:text="@tools:sample/lorem" />
+
+    <TextView
+        android:id="@+id/item_gameinfo_forum_date"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/item_gameinfo_forum_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        tools:text="9小时前" />
+
+    <com.demo.yetote.cubegame.utils.ExcellentButton
+        android:id="@+id/item_gameinfo_forum_excellent"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/item_gameinfo_forum_content"
+        android:layout_margin="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_toStartOf="@id/item_gameinfo_forum_discuss" />
+
+    <TextView
+        android:id="@+id/item_gameinfo_forum_discuss"
+        android:layout_width="80dp"
+        android:padding="5dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/item_gameinfo_forum_content"
+        android:layout_margin="5dp"
+        android:drawableStart="@mipmap/discuss"
+        android:gravity="center"
+        tools:text="121" />
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_below="@id/item_gameinfo_forum_date"
+    android:background="@color/gray_cc"/>
+</RelativeLayout>

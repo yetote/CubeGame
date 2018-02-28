@@ -91,17 +91,20 @@
             android:layout_marginTop="5dp"
             android:layout_toStartOf="@+id/item_homePager_love_discuss"
             android:drawableStart="@mipmap/time"
+            android:gravity="center"
             android:text="@string/testDate" />
 
         <TextView
             android:id="@+id/item_homePager_love_discuss"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/item_homePager_love_time"
             android:layout_alignEnd="@+id/item_homePager_love_contentCardView"
             android:layout_below="@+id/item_homePager_love_contentCardView"
             android:layout_marginBottom="2dp"
             android:layout_marginTop="5dp"
             android:drawableStart="@mipmap/discuss"
+            android:gravity="center"
             android:text="@string/testDiscuss" />
 
     </RelativeLayout>

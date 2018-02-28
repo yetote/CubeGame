@@ -8,8 +8,24 @@ package com.demo.yetote.cubegame.model;
  * @date 2018/2/27 16:42
  */
 public class GameInfoDiscussModel {
-    private String img, date, name, content, discussPeople, discussContent, phone;
+    private String img, date, name, content, discussPeople, discussContent, phone,discussPeople2, discussContent2;
     private int id, discussNum, excellentNum, badNum;
+
+    public String getDiscussPeople2() {
+        return discussPeople2;
+    }
+
+    public void setDiscussPeople2(String discussPeople2) {
+        this.discussPeople2 = discussPeople2;
+    }
+
+    public String getDiscussContent2() {
+        return discussContent2;
+    }
+
+    public void setDiscussContent2(String discussContent2) {
+        this.discussContent2 = discussContent2;
+    }
 
     @Override
     public String toString() {
@@ -21,6 +37,8 @@ public class GameInfoDiscussModel {
                 ", discussPeople='" + discussPeople + '\'' +
                 ", discussContent='" + discussContent + '\'' +
                 ", phone='" + phone + '\'' +
+                ", discussPeople2='" + discussPeople2 + '\'' +
+                ", discussContent2='" + discussContent2 + '\'' +
                 ", id=" + id +
                 ", discussNum=" + discussNum +
                 ", excellentNum=" + excellentNum +
@@ -28,7 +46,7 @@ public class GameInfoDiscussModel {
                 '}';
     }
 
-    public GameInfoDiscussModel(String img, String date, String name, String content, String discussPeople, String discussContent, String phone, int id, int discussNum, int excellentNum, int badNum) {
+    public GameInfoDiscussModel(String img, String date, String name, String content, String discussPeople, String discussContent, String phone, String discussPeople2, String discussContent2, int id, int discussNum, int excellentNum, int badNum) {
         this.img = img;
         this.date = date;
         this.name = name;
@@ -36,6 +54,8 @@ public class GameInfoDiscussModel {
         this.discussPeople = discussPeople;
         this.discussContent = discussContent;
         this.phone = phone;
+        this.discussPeople2 = discussPeople2;
+        this.discussContent2 = discussContent2;
         this.id = id;
         this.discussNum = discussNum;
         this.excellentNum = excellentNum;
