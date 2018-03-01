@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginBottom="10dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/item_gameinfo_forum_headImg"
@@ -88,17 +88,18 @@
     <TextView
         android:id="@+id/item_gameinfo_forum_discuss"
         android:layout_width="80dp"
-        android:padding="5dp"
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
         android:layout_below="@id/item_gameinfo_forum_content"
         android:layout_margin="5dp"
         android:drawableStart="@mipmap/discuss"
         android:gravity="center"
+        android:padding="5dp"
         tools:text="121" />
-<View
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:layout_below="@id/item_gameinfo_forum_date"
-    android:background="@color/gray_cc"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/item_gameinfo_forum_date"
+        android:background="@color/gray_cc" />
 </RelativeLayout>

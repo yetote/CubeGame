@@ -64,7 +64,7 @@
         android:layout_margin="5dp" />
 
     <View
-        android:id="@+id/fragment_gameinfo_forum_slide"
+        android:id="@+id/fragment_gameinfo_forum_divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@id/fragment_gameinfo_forum_rg"
@@ -74,6 +74,6 @@
         android:id="@+id/fragment_gameinfo_forum_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/fragment_gameinfo_forum_slide"
+        android:layout_below="@id/fragment_gameinfo_forum_divider"
         tools:listitem="@layout/item_gameifo_forum" />
 </RelativeLayout>

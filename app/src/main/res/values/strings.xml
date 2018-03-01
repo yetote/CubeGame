@@ -49,4 +49,6 @@
     <string name="company">开发商:</string>
     <string name="unfollow">未关注</string>
     <string name="report">举报</string>
+    <string name="asc">升序</string>
+    <string name="desc">降序</string>
 </resources>

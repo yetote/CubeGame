@@ -30,7 +30,7 @@ public class BadButton extends View {
     private int width, height;
     private Boolean isChecked;
     private static final String TAG = "BadButton";
-    private final int textSize = 50;
+    private final int textSize = 30;
     /**
      * 图片旋转角度
      */
