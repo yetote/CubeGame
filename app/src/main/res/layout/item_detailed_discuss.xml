@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/item_detailed_discuss_peopleName"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center|start"
+        android:textSize="@dimen/titleSize"
+        android:textStyle="bold"
+        tools:text="@tools:sample/full_names" />
+
+    <TextView
+        android:id="@+id/item_detailed_discuss_reply"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignTop="@id/item_detailed_discuss_peopleName"
+        android:layout_toEndOf="@id/item_detailed_discuss_peopleName"
+        android:gravity="center|start"
+        android:paddingEnd="3dp"
+        android:paddingStart="5dp"
+        android:text="@string/reply"
+        android:textColor="@color/gray_8f"
+        android:textSize="@dimen/titleSize" />
+
+    <TextView
+        android:id="@+id/item_detailed_discuss_replyPeople"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignTop="@id/item_detailed_discuss_peopleName"
+        android:layout_toEndOf="@id/item_detailed_discuss_reply"
+        android:layout_toStartOf="@id/item_detailed_discuss_excellentBtn"
+        android:ellipsize="end"
+        android:gravity="center|start"
+        android:maxLines="1"
+        android:paddingEnd="5dp"
+        android:paddingStart="2dp"
+        android:textSize="@dimen/titleSize"
+        android:textStyle="bold"
+        tools:text="@tools:sample/full_names" />
+
+    <com.demo.yetote.cubegame.utils.ExcellentButton
+        android:id="@+id/item_detailed_discuss_excellentBtn"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/item_detailed_discuss_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/item_detailed_discuss_peopleName"
+        android:textColor="@color/gray_cc"
+        tools:text="3小时前" />
+
+
+    <TextView
+        android:id="@+id/item_detailed_discuss_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_detailed_discuss_date"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:textSize="@dimen/contentSize"
+        tools:text="@tools:sample/lorem" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/item_detailed_discuss_content"
+        android:background="@color/gray_cc" />
+</RelativeLayout>

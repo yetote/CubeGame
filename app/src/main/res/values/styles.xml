@@ -69,4 +69,7 @@
         <attr name="badButton_isChecked" format="boolean" />
         <attr name="badButton_rotate" format="integer" />
     </declare-styleable>
+    <declare-styleable name="TimingButton">
+        <attr name="time" format="integer" />
+    </declare-styleable>
 </resources>
