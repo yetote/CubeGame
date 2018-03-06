@@ -11,6 +11,7 @@ import android.util.Log;
  */
 public class Count {
     private static final String TAG = "Count";
+
     /**
      * 倒计时
      *
@@ -18,11 +19,10 @@ public class Count {
      * @return 字符类型的倒计时
      */
     public static String countTime(long date) {
-        int hour = (int) (date / 60 / 60 );
-        int min = (int) (date / 60 );
-        int sec = (int) (date % (60*60) );
-        Log.e(TAG, "countTime: "+date );
+        int hour = (int) (date / 60 / 60);
+        int min = (int) (date / 60);
+        int sec = (int) (date % 60);
+        Log.e(TAG, "countTime: " + date);
         return hour + ":" + min + ":" + sec;
     }
-
 }
