@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="350dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/item_homePager_recommend_title"
+            android:layout_width="345dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/item_homePager_recommend_menu"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/item_homePager_recommend_menu"
+            android:padding="5dp"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/titleSize"
+            tools:text="@tools:sample/full_names" />
+
+        <ImageView
+            android:id="@+id/item_homePager_recommend_menu"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_above="@id/item_homePager_recommend_score"
+            android:layout_alignParentEnd="true"
+            tools:src="@mipmap/more" />
+
+        <TextView
+            android:id="@+id/item_homePager_recommend_originate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/item_homePager_recommend_score"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/item_homePager_recommend_discussNum"
+            android:gravity="center|start"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:textColor="@color/gray_cc"
+            android:textSize="@dimen/contentSize"
+            tools:text="该推荐来自......" />
+
+        <TextView
+            android:id="@+id/item_homePager_recommend_discussNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/item_homePager_recommend_score"
+            android:layout_alignTop="@id/item_homePager_recommend_score"
+            android:layout_toStartOf="@id/item_homePager_recommend_score"
+            android:padding="5dp"
+            android:textColor="@android:color/white"
+            tools:text="6300条评价" />
+
+        <TextView
+            android:id="@+id/item_homePager_recommend_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/item_homePager_recommend_developerWords"
+            android:layout_alignParentEnd="true"
+            android:background="@color/textColor"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/contentSize"
+            tools:text="8.5" />
+
+        <TextView
+            android:id="@+id/item_homePager_recommend_developerWords"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="5dp"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/contentSize"
+            tools:text="@tools:sample/lorem" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

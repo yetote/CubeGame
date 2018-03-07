@@ -52,4 +52,6 @@
     <string name="asc">升序</string>
     <string name="desc">降序</string>
     <string name="reply">回复</string>
+    <string name="ad">来自广告</string>
+    <string name="extend">推广</string>
 </resources>

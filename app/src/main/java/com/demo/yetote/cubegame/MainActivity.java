@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.widget.Toolbar;
 
-import com.demo.yetote.cubegame.adapter.viewpager.HomePagerViewPagerAdapter;
+import com.demo.yetote.cubegame.adapter.viewpager.NewsViewPagerAdapter;
 import com.demo.yetote.cubegame.fragment.BoonFragment;
 import com.demo.yetote.cubegame.fragment.CommunityFragment;
 import com.demo.yetote.cubegame.fragment.GameLibFragment;
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("福利"));
         tabLayout.addTab(tabLayout.newTab().setText("社区"));
 
-        HomePagerViewPagerAdapter adapter = new HomePagerViewPagerAdapter(getFragmentManager(), fmList, title);
+        NewsViewPagerAdapter adapter = new NewsViewPagerAdapter(getFragmentManager(), fmList, title);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
