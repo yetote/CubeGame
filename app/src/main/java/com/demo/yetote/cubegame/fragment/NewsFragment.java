@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.adapter.recyclerview.NewsRvAdapter;
 import com.demo.yetote.cubegame.model.HomePgaerModel;
+import com.demo.yetote.cubegame.model.NewsModel;
 
 import java.util.ArrayList;
 
@@ -34,7 +35,7 @@ public class NewsFragment extends Fragment {
 
         initViews(v);
 
-        ArrayList<HomePgaerModel> list = new ArrayList<>();
+        ArrayList<NewsModel> list = new ArrayList<>();
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         NewsRvAdapter adapter = new NewsRvAdapter(getActivity(), list);
         rv.setAdapter(adapter);

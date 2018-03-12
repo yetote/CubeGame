@@ -2,11 +2,12 @@ package com.demo.yetote.cubegame.model;
 
 /**
  * com.demo.yetote.cubegame.model
+ * 资讯Model
  *
  * @author Swg
  * @date 2018/1/17 14:40
  */
-public class HomePgaerModel {
+public class NewsModel {
     private String img, title, content, tag, date;
     private int discuss;
 
@@ -22,7 +23,7 @@ public class HomePgaerModel {
                 '}';
     }
 
-    public HomePgaerModel(String img, String title, String content, String tag, String date, int discuss) {
+    public NewsModel(String img, String title, String content, String tag, String date, int discuss) {
         this.img = img;
         this.title = title;
         this.content = content;

@@ -59,19 +59,18 @@ public class MainActivity extends AppCompatActivity {
         fmList.add(new NewsFragment());
         fmList.add(new GameLibFragment());
         fmList.add(new BoonFragment());
-        fmList.add(new CommunityFragment());
 
         title.add("首页");
         title.add("资讯");
         title.add("游戏库");
         title.add("福利");
-        title.add("社区");
+
 
         tabLayout.addTab(tabLayout.newTab().setText("首页"));
         tabLayout.addTab(tabLayout.newTab().setText("资讯"));
         tabLayout.addTab(tabLayout.newTab().setText("游戏库"));
         tabLayout.addTab(tabLayout.newTab().setText("福利"));
-        tabLayout.addTab(tabLayout.newTab().setText("社区"));
+
 
         NewsViewPagerAdapter adapter = new NewsViewPagerAdapter(getFragmentManager(), fmList, title);
         viewPager.setAdapter(adapter);

@@ -14,9 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".PwdLoginActivity" />
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".VerifyCodeLoginActivity" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
@@ -44,14 +50,8 @@
                 <data android:scheme="tencent1106398482" />
             </intent-filter>
         </activity>
-        <activity android:name=".GameInfoActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".DetailedDiscuss"></activity>
+        <activity android:name=".GameInfoActivity" />
+        <activity android:name=".DetailedDiscuss" />
     </application>
 
 </manifest>
