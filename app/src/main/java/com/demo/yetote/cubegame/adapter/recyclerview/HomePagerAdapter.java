@@ -24,35 +24,35 @@ public class HomePagerAdapter extends RecyclerView.Adapter {
     private Context context;
     private ArrayList<HomePagerModel> list;
     private String tag = "炉石传说";
-    public static final int RECOMMEND_TAG = 1;
-    public static final int UN_RECOMMEND_TAG = 0;
+    private static final int RECOMMEND_TAG = 1;
+    private static final int UN_RECOMMEND_TAG = 0;
 
     public HomePagerAdapter(Context context, ArrayList<HomePagerModel> list) {
         this.context = context;
         this.list = list;
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    private class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView title, content, score;
         private ImageView iv;
 
-        public TextView getTitle() {
+        private TextView getTitle() {
             return title;
         }
 
-        public TextView getContent() {
+        private TextView getContent() {
             return content;
         }
 
-        public TextView getScore() {
+        private TextView getScore() {
             return score;
         }
 
-        public ImageView getIv() {
+        private ImageView getIv() {
             return iv;
         }
 
-        public MyViewHolder(View itemView) {
+        private MyViewHolder(View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.item_homePager_title);
             content = itemView.findViewById(R.id.item_homePager_content);
@@ -62,39 +62,39 @@ public class HomePagerAdapter extends RecyclerView.Adapter {
         }
     }
 
-    class MyRecommendViewHolder extends RecyclerView.ViewHolder {
+    private class MyRecommendViewHolder extends RecyclerView.ViewHolder {
         private TextView recommendTitle, recommendScore, recommendOriginate, recommendDiscussNum, developerWords;
         private ImageView recommendIv, recommendMenu;
 
-        public TextView getDeveloperWords() {
+        private TextView getDeveloperWords() {
             return developerWords;
         }
 
-        public TextView getRecommendTitle() {
+        private TextView getRecommendTitle() {
             return recommendTitle;
         }
 
-        public ImageView getRecommendMenu() {
+        private ImageView getRecommendMenu() {
             return recommendMenu;
         }
 
-        public TextView getRecommendScore() {
+        private TextView getRecommendScore() {
             return recommendScore;
         }
 
-        public TextView getRecommendOriginate() {
+        private TextView getRecommendOriginate() {
             return recommendOriginate;
         }
 
-        public TextView getRecommendDiscussNum() {
+        private TextView getRecommendDiscussNum() {
             return recommendDiscussNum;
         }
 
-        public ImageView getRecommendIv() {
+        private ImageView getRecommendIv() {
             return recommendIv;
         }
 
-        public MyRecommendViewHolder(View itemView) {
+        private MyRecommendViewHolder(View itemView) {
             super(itemView);
             recommendTitle = itemView.findViewById(R.id.item_homePager_recommend_title);
             recommendMenu = itemView.findViewById(R.id.item_homePager_recommend_menu);

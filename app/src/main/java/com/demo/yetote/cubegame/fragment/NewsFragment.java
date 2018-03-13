@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.adapter.recyclerview.NewsRvAdapter;
-import com.demo.yetote.cubegame.model.HomePgaerModel;
 import com.demo.yetote.cubegame.model.NewsModel;
 
 import java.util.ArrayList;
@@ -31,6 +30,7 @@ public class NewsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // TODO: 2018/ 2/26 资讯fragment
         View v = inflater.inflate(R.layout.fragment_news, container, false);
 
         initViews(v);
@@ -46,6 +46,5 @@ public class NewsFragment extends Fragment {
         viewPager = v.findViewById(R.id.fragment_news_viewPager);
         rv = v.findViewById(R.id.fragment_news_rv);
     }
-    // TODO: 2018/2/26 资讯fragment
 
 }
