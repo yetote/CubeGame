@@ -75,5 +75,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/fragment_gameinfo_forum_divider"
-        tools:listitem="@layout/item_gameifo_forum" />
+        tools:listitem="@layout/item_gameinfo_forum" />
 </RelativeLayout>

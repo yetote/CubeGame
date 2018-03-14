@@ -90,7 +90,7 @@ public class GameInfoForumAdapter extends RecyclerView.Adapter {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.item_gameifo_forum, parent, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.item_gameinfo_forum, parent, false);
         return new MyViewHolder(v);
     }
 

@@ -18,8 +18,8 @@
             android:id="@+id/fragment_gameLib_item_cv_iv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
             android:contentDescription="@string/gameDescription"
+            android:scaleType="centerCrop"
             tools:src="@tools:sample/backgrounds/scenic" />
     </android.support.v7.widget.CardView>
 
@@ -42,7 +42,7 @@
         android:rating="1.3" />
 
     <LinearLayout
-        android:id="@+id/fragment_gameLib_item_ll"
+        android:id="@+id/fragment_gameLib_item_tag_ll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
@@ -55,9 +55,9 @@
         android:id="@+id/fragment_gameLib_item_btn"
         android:layout_width="60dp"
         android:layout_height="35dp"
-        tools:text="@string/download"
-        android:textColor="@color/textColor"
-        android:background="@drawable/get_verifycode_btn_background"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"     />
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/get_verifycode_btn_background"
+        android:textColor="@color/textColor"
+        tools:text="@string/download" />
 </RelativeLayout>
