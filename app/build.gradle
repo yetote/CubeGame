@@ -42,4 +42,5 @@ dependencies {
     implementation 'com.android.support:support-v13:27.0.2'
     implementation 'com.trello.rxlifecycle2:rxlifecycle-android-lifecycle:2.2.1'
     implementation files('libs/open_sdk_r5990_lite.jar')
+    implementation 'com.squareup.okhttp3:mockwebserver:3.10.0'
 }
