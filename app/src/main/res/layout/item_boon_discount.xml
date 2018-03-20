@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
-    android:paddingBottom="5dp">
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp">
 
     <ImageView
         android:id="@+id/item_boon_discount_iv"
@@ -34,7 +34,11 @@
         android:gravity="center|start"
         android:maxLines="2"
         android:padding="5dp"
-        android:textColor="@color/gray_cc" />
+        android:paddingEnd="5dp"
+        android:paddingStart="5dp"
+        android:textColor="@color/gray_cc"
+        android:textSize="@dimen/contentSize"
+        tools:text="@tools:sample/lorem/random" />
 
     <TextView
         android:id="@+id/item_boon_discount_percentage"
@@ -44,16 +48,18 @@
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@id/item_boon_discount_iv"
         android:gravity="end|center"
+        android:paddingEnd="5dp"
         android:textColor="@color/gray_8f" />
 
     <LinearLayout
         android:id="@+id/item_boon_discount_priceLl"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_alignParentBottom="true"
+        android:layout_alignBottom="@id/item_boon_discount_iv"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@id/item_boon_discount_iv"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingEnd="5dp">
 
         <TextView
             android:id="@+id/item_boon_discount_originalCost"
@@ -86,4 +92,12 @@
             android:text="@string/download"
             android:textColor="@color/white" />
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/item_boon_discount_priceLl"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/gray_cc" />
 </RelativeLayout>

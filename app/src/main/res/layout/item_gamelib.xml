@@ -32,6 +32,7 @@
         tools:text="@tools:sample/full_names" />
 
     <RatingBar
+        android:progressTint="@color/tianyi"
         android:id="@+id/fragment_gameLib_item_ratingBar"
         style="@style/Base.Widget.AppCompat.RatingBar.Small"
         android:layout_width="wrap_content"
@@ -39,7 +40,8 @@
         android:layout_centerVertical="true"
         android:layout_toEndOf="@id/fragment_gameLib_item_cv"
         android:numStars="5"
-        android:rating="1.3" />
+        android:rating="1.3"
+        android:stepSize="0.1" />
 
     <LinearLayout
         android:id="@+id/fragment_gameLib_item_tag_ll"
@@ -58,6 +60,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:background="@drawable/get_verifycode_btn_background"
-        android:textColor="@color/textColor"
-        tools:text="@string/download" />
+        android:text="@string/download"
+        android:textColor="@color/textColor" />
 </RelativeLayout>
