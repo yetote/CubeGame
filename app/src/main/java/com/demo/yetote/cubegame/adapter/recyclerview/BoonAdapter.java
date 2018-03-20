@@ -121,15 +121,15 @@ public class BoonAdapter extends RecyclerView.Adapter {
             MyFreeViewHolder vh = (MyFreeViewHolder) holder;
             vh.getContent().setText(list.get(position).getContent());
             vh.getTitle().setText(list.get(position).getTitle());
-            vh.getTimingButton().setText(list.get(position).getTime());
+            vh.getTimingButton().setTime(list.get(position).getTime());
             Glide.with(context).load(list.get(position).getImg()).into(vh.getIv());
         } else {
             MyViewHolder vh = (MyViewHolder) holder;
             vh.getContent().setText(list.get(position).getContent());
-            vh.getTitle().setText(list.get(position).getContent());
-            vh.getPercentage().setText(list.get(position).getContent());
-            vh.getDiscountCost().setText(list.get(position).getContent());
-            vh.getOriginalCost().setText(list.get(position).getContent());
+            vh.getTitle().setText(list.get(position).getTitle());
+            vh.getPercentage().setText(list.get(position).getPercentage());
+            vh.getDiscountCost().setText(list.get(position).getDiscountCost());
+            vh.getOriginalCost().setText(list.get(position).getOriginalCost());
             Glide.with(context).load(list.get(position).getImg()).into(vh.getIv());
         }
     }

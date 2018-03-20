@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class HomePagerAdapter extends RecyclerView.Adapter {
     private Context context;
     private ArrayList<HomePagerModel> list;
-    private String tag = "炉石传说";
+    private String tag = "仙剑";
     private static final int RECOMMEND_TAG = 1;
     private static final int UN_RECOMMEND_TAG = 0;
 
@@ -113,10 +113,10 @@ public class HomePagerAdapter extends RecyclerView.Adapter {
         View v;
         if (viewType == RECOMMEND_TAG) {
             v = LayoutInflater.from(context).inflate(R.layout.item_homepager_recommend, parent, false);
-            return new MyViewHolder(v);
+            return new MyRecommendViewHolder(v);
         } else {
             v = LayoutInflater.from(context).inflate(R.layout.item_homepager, parent, false);
-            return new MyRecommendViewHolder(v);
+            return new MyViewHolder(v);
         }
     }
 
@@ -126,7 +126,7 @@ public class HomePagerAdapter extends RecyclerView.Adapter {
             MyRecommendViewHolder vh = (MyRecommendViewHolder) holder;
             vh.getRecommendTitle().setText(list.get(position).getTitle());
             vh.getRecommendScore().setText(list.get(position).getScore());
-            vh.getRecommendDiscussNum().setText(list.get(position).getDiscussNum());
+            vh.getRecommendDiscussNum().setText(list.get(position).getDiscussNum()+"");
             vh.getDeveloperWords().setText(list.get(position).getDeveloperWords());
             Glide.with(context).load(list.get(position).getIv()).into(vh.getRecommendIv());
         } else {

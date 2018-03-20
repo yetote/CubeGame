@@ -5,8 +5,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@color/transparent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@color/transparent">
 
     <RelativeLayout
         android:id="@+id/item_news_love_rl"
@@ -16,7 +16,7 @@
         <ImageView
             android:id="@+id/item_news_love_iv"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
@@ -31,7 +31,7 @@
             android:layout_below="@id/item_news_love_iv"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="-50dp"
+            android:layout_marginTop="-80dp"
             android:background="@color/white"
             android:padding="5dp"
             app:cardCornerRadius="5dp"
@@ -67,6 +67,7 @@
                     android:layout_marginTop="5dp"
                     android:ellipsize="end"
                     android:maxLines="6"
+                    android:textColor="@color/gray_cc"
                     android:text="@string/test_content"
                     android:textSize="@dimen/contentSize" />
             </RelativeLayout>
