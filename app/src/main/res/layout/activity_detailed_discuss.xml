@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailedDiscuss">
+
+    <Toolbar
+        android:id="@+id/detailed_discuss_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:id="@+id/detailed_discuss_gameImg"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/detailed_discuss_toolbar"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="2dp"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/detailed_discuss_gameName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detailed_discuss_toolbar"
+        android:layout_margin="2dp"
+        android:layout_toEndOf="@id/detailed_discuss_gameImg" />
+
+    <RatingBar
+        android:id="@+id/detailed_discuss_gameScore"
+        style="@style/Base.Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detailed_discuss_gameName"
+        android:layout_margin="2dp"
+        android:layout_toEndOf="@id/detailed_discuss_gameImg"
+        android:numStars="5"
+        tools:rating="1.3" />
+
+    <View
+        android:id="@+id/detailed_discuss_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/detailed_discuss_gameImg"
+        android:layout_margin="2dp"
+        android:background="@color/gray_cc" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/detailed_discuss_discussPeopleHeadImg"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/detailed_discuss_divider"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/detailed_discuss_discussPeopleName"
+        android:layout_width="227dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/detailed_discuss_discussPeopleHeadImg"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@id/detailed_discuss_discussPeopleHeadImg"
+        android:layout_toStartOf="@id/detailed_discuss_report"
+        android:ellipsize="end"
+        android:maxLines="1" />
+
+    <RatingBar
+        android:id="@+id/detailed_discuss_discussPeopleScore"
+        style="@style/Base.Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detailed_discuss_discussPeopleName"
+        android:layout_margin="2dp"
+        android:layout_toEndOf="@id/detailed_discuss_discussPeopleHeadImg"
+        android:numStars="5"
+        tools:rating="1.3" />
+
+    <TextView
+        android:id="@+id/detailed_discuss_report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/detailed_discuss_date"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="2dp"
+        android:layout_toStartOf="@id/detailed_discuss_date"
+        android:text="@string/report" />
+
+    <TextView
+        android:id="@+id/detailed_discuss_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/detailed_discuss_divider"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="5dp"
+        tools:text="3小时前" />
+
+    <TextView
+        android:id="@+id/detailed_discuss_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detailed_discuss_discussPeopleHeadImg"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:maxLines="7" />
+
+    <TextView
+        android:id="@+id/detailed_discuss_showMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/detailed_discuss_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/show_all"
+        android:textColor="@color/textColor" />
+
+    <RelativeLayout
+        android:id="@+id/detailed_discuss_evaluateRl"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/detailed_discuss_showMore">
+
+        <TextView
+            android:id="@+id/detailed_discuss_discussPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="2dp"
+            android:layout_toStartOf="@id/detailed_discuss_discussExcellent"
+            android:drawableStart="@mipmap/phone"
+            android:gravity="center|start" />
+
+        <com.demo.yetote.cubegame.utils.ExcellentButton
+            android:id="@+id/detailed_discuss_discussExcellent"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toStartOf="@id/detailed_discuss_discussBad" />
+
+        <com.demo.yetote.cubegame.utils.BadButton
+            android:id="@+id/detailed_discuss_discussBad"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/detailed_discuss_rvHead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detailed_discuss_evaluateRl">
+
+        <TextView
+            android:id="@+id/detailed_discuss_rvHead_discussNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_margin="5dp"
+            android:layout_toStartOf="@id/detailed_discuss_rvHead_rg"
+            android:gravity="center|start"
+            android:paddingEnd="2dp"
+            android:paddingStart="5dp"
+            android:textStyle="bold"
+            tools:text="全部回复(69)" />
+
+        <RadioGroup
+            android:id="@+id/detailed_discuss_rvHead_rg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/detailed_discuss_asc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:button="@null"
+                android:checked="true"
+                android:text="@string/asc"
+                android:textColor="@drawable/detailed_discuss_rb_textcolor" />
+
+            <RadioButton
+                android:id="@+id/detailed_discuss_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:button="@null"
+                android:text="@string/desc"
+                android:textColor="@drawable/gameinfo_tablayout_item_textcolor" />
+        </RadioGroup>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/detailed_discuss_rv_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_cc"
+        android:layout_margin="2dp"
+        android:layout_below="@id/detailed_discuss_rvHead"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/detailed_discuss_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/detailed_discuss_rv_divider"
+        tools:listitem="@layout/item_detailed_discuss" />
+</RelativeLayout>
