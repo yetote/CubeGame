@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.model.GameInfoDiscussModel;
+import com.demo.yetote.cubegame.utils.OnClick;
 
 import java.util.ArrayList;
 
@@ -26,7 +27,15 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class GameInfoDiscussAdapter extends RecyclerView.Adapter {
     private ArrayList<GameInfoDiscussModel> list;
     private Context context;
+    private OnClick listener;
 
+    public OnClick getListener() {
+        return listener;
+    }
+
+    public void setListener(OnClick listener) {
+        this.listener = listener;
+    }
     public GameInfoDiscussAdapter(ArrayList<GameInfoDiscussModel> list, Context context) {
         this.list = list;
         this.context = context;
@@ -115,6 +124,7 @@ public class GameInfoDiscussAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.item_discuss, parent, false);
+        v.setOnClickListener(v1 -> listener.onClickListener(v, (String) v.getTag()));
         return new MyViewHolder(v);
     }
 
@@ -129,6 +139,7 @@ public class GameInfoDiscussAdapter extends RecyclerView.Adapter {
         vh.getBadButton().setText(list.get(position).getBadNum());
         vh.getExcellentButton().setText(list.get(position).getExcellentNum());
         vh.getPhone().setText(list.get(position).getPhone());
+        vh.itemView.setTag(list.get(position).getId());
         if (list.get(position).getDiscussPeople() == null) {
             vh.getDiscussLl1().setVisibility(View.GONE);
             vh.getDiscussLl2().setVisibility(View.GONE);

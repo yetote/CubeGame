@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.model.HomePagerModel;
+import com.demo.yetote.cubegame.utils.OnClick;
 
 import java.util.ArrayList;
 
@@ -26,7 +27,15 @@ public class HomePagerAdapter extends RecyclerView.Adapter {
     private String tag = "仙剑";
     private static final int RECOMMEND_TAG = 1;
     private static final int UN_RECOMMEND_TAG = 0;
+    private OnClick listener;
 
+    public OnClick getListener() {
+        return listener;
+    }
+
+    public void setListener(OnClick listener) {
+        this.listener = listener;
+    }
     public HomePagerAdapter(Context context, ArrayList<HomePagerModel> list) {
         this.context = context;
         this.list = list;
@@ -113,9 +122,11 @@ public class HomePagerAdapter extends RecyclerView.Adapter {
         View v;
         if (viewType == RECOMMEND_TAG) {
             v = LayoutInflater.from(context).inflate(R.layout.item_homepager_recommend, parent, false);
+            v.setOnClickListener(v1 -> listener.onClickListener(v, (String) v.getTag()));
             return new MyRecommendViewHolder(v);
         } else {
             v = LayoutInflater.from(context).inflate(R.layout.item_homepager, parent, false);
+            v.setOnClickListener(v1 -> listener.onClickListener(v, (String) v.getTag()));
             return new MyViewHolder(v);
         }
     }
@@ -129,12 +140,14 @@ public class HomePagerAdapter extends RecyclerView.Adapter {
             vh.getRecommendDiscussNum().setText(list.get(position).getDiscussNum()+"");
             vh.getDeveloperWords().setText(list.get(position).getDeveloperWords());
             Glide.with(context).load(list.get(position).getIv()).into(vh.getRecommendIv());
+            vh.itemView.setTag(list.get(position).getId());
         } else {
             MyViewHolder vh = (MyViewHolder) holder;
             vh.getContent().setText(list.get(position).getContent());
             vh.getTitle().setText(list.get(position).getTitle());
             vh.getScore().setText(list.get(position).getScore());
             Glide.with(context).load(list.get(position).getIv()).into(vh.getIv());
+            vh.itemView.setTag(list.get(position).getId());
         }
     }
 

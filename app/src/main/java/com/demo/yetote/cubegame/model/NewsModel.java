@@ -9,27 +9,37 @@ package com.demo.yetote.cubegame.model;
  */
 public class NewsModel {
     private String img, title, content, tag, date;
-    private int discuss;
+    private int discuss, id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     @Override
     public String toString() {
-        return "HomePgaerModel{" +
+        return "NewsModel{" +
                 "img='" + img + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", tag='" + tag + '\'' +
                 ", date='" + date + '\'' +
                 ", discuss=" + discuss +
+                ", id=" + id +
                 '}';
     }
 
-    public NewsModel(String img, String title, String content, String tag, String date, int discuss) {
+    public NewsModel(String img, String title, String content, String tag, String date, int discuss, int id) {
         this.img = img;
         this.title = title;
         this.content = content;
         this.tag = tag;
         this.date = date;
         this.discuss = discuss;
+        this.id = id;
     }
 
     public String getImg() {

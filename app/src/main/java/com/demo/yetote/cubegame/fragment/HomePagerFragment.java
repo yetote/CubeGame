@@ -1,6 +1,7 @@
 package com.demo.yetote.cubegame.fragment;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.demo.yetote.cubegame.GameInfoActivity;
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.adapter.recyclerview.HomePagerAdapter;
 import com.demo.yetote.cubegame.model.HomePagerModel;
@@ -38,6 +40,12 @@ public class HomePagerFragment extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         adapter = new HomePagerAdapter(getActivity(), list);
         rv.setAdapter(adapter);
+
+        adapter.setListener((v1, tag) -> {
+            Intent i = new Intent();
+            i.setClass(getActivity(), GameInfoActivity.class);
+            startActivity(i);
+        });
 
         return v;
     }

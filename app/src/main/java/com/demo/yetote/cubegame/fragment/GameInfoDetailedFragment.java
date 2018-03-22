@@ -1,6 +1,7 @@
 package com.demo.yetote.cubegame.fragment;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.demo.yetote.cubegame.DetailedDiscussActivity;
+import com.demo.yetote.cubegame.GameInfoActivity;
 import com.demo.yetote.cubegame.R;
 
 import com.demo.yetote.cubegame.adapter.recyclerview.GameInfoPicAdapter;
@@ -53,6 +56,18 @@ public class GameInfoDetailedFragment extends Fragment {
         themeRv.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         themeAdapter = new GameInfoThemeAdapter(getActivity(), themeList);
         themeRv.setAdapter(themeAdapter);
+
+        picAdapter.setListener((v1, tag) -> {
+            Intent i = new Intent();
+            i.setClass(getActivity(), DetailedDiscussActivity.class);
+            startActivity(i);
+        });
+
+        themeAdapter.setListener((v1, tag) -> {
+            Intent i = new Intent();
+            i.setClass(getActivity(), DetailedDiscussActivity.class);
+            startActivity(i);
+        });
 
         return v;
     }

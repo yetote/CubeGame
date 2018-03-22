@@ -1,6 +1,7 @@
 package com.demo.yetote.cubegame.fragment;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,9 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.demo.yetote.cubegame.GameInfoActivity;
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.adapter.recyclerview.BoonAdapter;
 import com.demo.yetote.cubegame.model.BoonModel;
+import com.demo.yetote.cubegame.utils.OnClick;
 
 import java.util.ArrayList;
 
@@ -40,6 +43,11 @@ public class BoonFragment extends Fragment {
         adapter = new BoonAdapter(getActivity(), list);
         rv.setAdapter(adapter);
 
+        adapter.setListener((v1, tag) -> {
+            Intent i = new Intent();
+            i.setClass(getActivity(), GameInfoActivity.class);
+            startActivity(i);
+        });
         return v;
     }
 

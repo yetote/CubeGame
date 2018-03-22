@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.model.GameLibModel;
+import com.demo.yetote.cubegame.utils.OnClick;
 
 import java.util.ArrayList;
 
@@ -25,7 +26,15 @@ import java.util.ArrayList;
 public class GameLibAdapter extends RecyclerView.Adapter {
     private Context context;
     private ArrayList<GameLibModel> list;
+    private OnClick listener;
 
+    public OnClick getListener() {
+        return listener;
+    }
+
+    public void setListener(OnClick listener) {
+        this.listener = listener;
+    }
     public GameLibAdapter(Context context, ArrayList<GameLibModel> list) {
         this.context = context;
         this.list = list;
@@ -62,6 +71,7 @@ public class GameLibAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.item_gamelib, parent, false);
+        v.setOnClickListener(v1 -> listener.onClickListener(v, (String) v.getTag()));
         return new MyViewHolder(v);
     }
 
@@ -71,6 +81,7 @@ public class GameLibAdapter extends RecyclerView.Adapter {
         vh.getTitle().setText(list.get(position).getTitle());
         vh.getScore().setRating(Float.parseFloat(list.get(position).getScore()));
         Glide.with(context).load(list.get(position).getImg()).into(vh.getIv());
+        vh.itemView.setTag(list.get(position).getId());
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.demo.yetote.cubegame.fragment;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +13,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.demo.yetote.cubegame.DetailedDiscussActivity;
+import com.demo.yetote.cubegame.GameInfoActivity;
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.adapter.recyclerview.GameInfoForumAdapter;
 import com.demo.yetote.cubegame.model.GameInfoForumModel;
@@ -45,6 +48,12 @@ public class GameInfoForumFragment extends Fragment implements AdapterView.OnIte
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new GameInfoForumAdapter(getActivity(), list);
         rv.setAdapter(adapter);
+
+        adapter.setListener((v1, tag) -> {
+            Intent i = new Intent();
+            i.setClass(getActivity(), DetailedDiscussActivity.class);
+            startActivity(i);
+        });
 
         spinner.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, spinnerItem));
         spinner.setOnItemSelectedListener(this);

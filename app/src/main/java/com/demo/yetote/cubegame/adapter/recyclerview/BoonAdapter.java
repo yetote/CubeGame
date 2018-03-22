@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.model.BoonModel;
+import com.demo.yetote.cubegame.utils.OnClick;
 import com.demo.yetote.cubegame.utils.TimingButton;
 
 import java.util.ArrayList;
@@ -28,6 +29,15 @@ public class BoonAdapter extends RecyclerView.Adapter {
     private static final String BOON_FREE_TAG = "free";
     private static final int BOON_FREE = 1;
     private static final int BOON_UNFREE = 0;
+    private OnClick listener;
+
+    public OnClick getListener() {
+        return listener;
+    }
+
+    public void setListener(OnClick listener) {
+        this.listener = listener;
+    }
 
     public BoonAdapter(Context context, ArrayList<BoonModel> list) {
         this.context = context;
@@ -100,6 +110,7 @@ public class BoonAdapter extends RecyclerView.Adapter {
             content = itemView.findViewById(R.id.item_boon_free_content);
             iv = itemView.findViewById(R.id.item_boon_free_iv);
             timingButton = itemView.findViewById(R.id.item_boon_free_download);
+
         }
     }
 
@@ -108,9 +119,11 @@ public class BoonAdapter extends RecyclerView.Adapter {
         View v;
         if (viewType == BOON_FREE) {
             v = LayoutInflater.from(context).inflate(R.layout.item_boon_free, parent, false);
+            v.setOnClickListener(v1 -> listener.onClickListener(v, (String) v.getTag()));
             return new MyFreeViewHolder(v);
         } else {
             v = LayoutInflater.from(context).inflate(R.layout.item_boon_discount, parent, false);
+            v.setOnClickListener(v1 -> listener.onClickListener(v, (String) v.getTag()));
             return new MyViewHolder(v);
         }
     }
@@ -123,6 +136,7 @@ public class BoonAdapter extends RecyclerView.Adapter {
             vh.getTitle().setText(list.get(position).getTitle());
             vh.getTimingButton().setTime(list.get(position).getTime());
             Glide.with(context).load(list.get(position).getImg()).into(vh.getIv());
+            vh.itemView.setTag(list.get(position).getId());
         } else {
             MyViewHolder vh = (MyViewHolder) holder;
             vh.getContent().setText(list.get(position).getContent());
@@ -131,7 +145,9 @@ public class BoonAdapter extends RecyclerView.Adapter {
             vh.getDiscountCost().setText(list.get(position).getDiscountCost());
             vh.getOriginalCost().setText(list.get(position).getOriginalCost());
             Glide.with(context).load(list.get(position).getImg()).into(vh.getIv());
+            vh.itemView.setTag(list.get(position).getId());
         }
+
     }
 
     @Override

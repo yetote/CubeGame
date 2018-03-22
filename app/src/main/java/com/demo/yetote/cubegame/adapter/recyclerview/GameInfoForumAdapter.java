@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.model.GameInfoForumModel;
+import com.demo.yetote.cubegame.utils.OnClick;
 
 import java.util.ArrayList;
 
@@ -26,7 +27,15 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class GameInfoForumAdapter extends RecyclerView.Adapter {
     private Context context;
     private ArrayList<GameInfoForumModel> list;
+    private OnClick listener;
 
+    public OnClick getListener() {
+        return listener;
+    }
+
+    public void setListener(OnClick listener) {
+        this.listener = listener;
+    }
     public GameInfoForumAdapter(Context context, ArrayList<GameInfoForumModel> list) {
         this.context = context;
         this.list = list;
@@ -91,6 +100,7 @@ public class GameInfoForumAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.item_gameinfo_forum, parent, false);
+        v.setOnClickListener(v1 -> listener.onClickListener(v, (String) v.getTag()));
         return new MyViewHolder(v);
     }
 
@@ -106,6 +116,7 @@ public class GameInfoForumAdapter extends RecyclerView.Adapter {
         vh.getExcellentBtn().setText(list.get(position).getExcellentNum() + "");
         vh.getDiscuss().setText(list.get(position).getDiscussNum() + "");
         vh.getSeeNum().setText(list.get(position).getSeeNum() + "次游览");
+        vh.itemView.setTag(list.get(position).getId());
     }
 
     @Override

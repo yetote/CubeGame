@@ -9,12 +9,22 @@ package com.demo.yetote.cubegame.model;
  */
 public class GameInfoThemeModel {
     private String title, content, time, discussNum;
+    private int id;
 
-    public GameInfoThemeModel(String title, String content, String time, String discussNum) {
+    public GameInfoThemeModel(String title, String content, String time, String discussNum, int id) {
         this.title = title;
         this.content = content;
         this.time = time;
         this.discussNum = discussNum;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -56,6 +66,7 @@ public class GameInfoThemeModel {
                 ", content='" + content + '\'' +
                 ", time='" + time + '\'' +
                 ", discussNum='" + discussNum + '\'' +
+                ", id=" + id +
                 '}';
     }
 }

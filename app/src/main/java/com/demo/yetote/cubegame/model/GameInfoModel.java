@@ -12,8 +12,17 @@ public class GameInfoModel {
     private String title, followNum, manufacturer;
     private Boolean isFollow;
     private String score;
+    private int id;
 
-    public GameInfoModel(String video, String img, String title, String followNum, String manufacturer, Boolean isFollow, String score) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public GameInfoModel(String video, String img, String title, String followNum, String manufacturer, Boolean isFollow, String score, int id) {
         this.video = video;
         this.img = img;
         this.title = title;
@@ -21,6 +30,7 @@ public class GameInfoModel {
         this.manufacturer = manufacturer;
         this.isFollow = isFollow;
         this.score = score;
+        this.id = id;
     }
 
     public String getVideo() {
@@ -89,6 +99,7 @@ public class GameInfoModel {
                 ", manufacturer='" + manufacturer + '\'' +
                 ", isFollow=" + isFollow +
                 ", score='" + score + '\'' +
+                ", id=" + id +
                 '}';
     }
 }
