@@ -67,20 +67,6 @@ public class GameInfoDiscussFragment extends Fragment {
         list.add(new GameInfoDiscussModel("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521385264789&di=2498c3a856e2ecf0463461fb1167acff&imgtype=0&src=http%3A%2F%2Ff.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F2fdda3cc7cd98d105c9f28202d3fb80e7bec9053.jpg","2017-12-18","k","vaa","1600","212311313","huawei mate6","liu","2",11,182,120,1));
         list.add(new GameInfoDiscussModel("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521385264788&di=27d51342a189ebfc7b9a6d5c01cc5125&imgtype=0&src=http%3A%2F%2Fd.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F8b82b9014a90f603e0fbcf573512b31bb051ed53.jpg","2017-12-18","l","aa","1600","212311313","huawei mate4","liu","2",12,172,110,92));
         list.add(new GameInfoDiscussModel("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521385648468&di=a777dbf4a04a2649ddded6d6d630e0b2&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F5882b2b7d0a20cf415e38ac77a094b36acaf99b2.jpg","2017-12-18","b","da","1860","212311313","huawei mate6","liu","2",13,192,120,91));
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
 
     private void initViews(View v) {

@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.model.GameInfoDiscussModel;
+import com.demo.yetote.cubegame.utils.BadButton;
+import com.demo.yetote.cubegame.utils.ExcellentButton;
 import com.demo.yetote.cubegame.utils.OnClick;
 
 import java.util.ArrayList;
@@ -36,6 +38,7 @@ public class GameInfoDiscussAdapter extends RecyclerView.Adapter {
     public void setListener(OnClick listener) {
         this.listener = listener;
     }
+
     public GameInfoDiscussAdapter(ArrayList<GameInfoDiscussModel> list, Context context) {
         this.list = list;
         this.context = context;
@@ -43,8 +46,10 @@ public class GameInfoDiscussAdapter extends RecyclerView.Adapter {
 
     private class MyViewHolder extends RecyclerView.ViewHolder {
         private CircleImageView iv;
-        private TextView name, date, content, discussNum, badButton, excellentButton, phone, discussPeople1, discussContent1, discussPeople2, discussContent2;
+        private TextView name, date, content, discussNum, phone, discussPeople1, discussContent1, discussPeople2, discussContent2;
         private LinearLayout discussLl1, discussLl2;
+        private BadButton badButton;
+        private ExcellentButton excellentButton;
 
         private LinearLayout getDiscussLl1() {
             return discussLl1;
@@ -74,11 +79,11 @@ public class GameInfoDiscussAdapter extends RecyclerView.Adapter {
             return discussNum;
         }
 
-        private TextView getBadButton() {
+        private BadButton getBadButton() {
             return badButton;
         }
 
-        private TextView getExcellentButton() {
+        private ExcellentButton getExcellentButton() {
             return excellentButton;
         }
 
@@ -124,7 +129,7 @@ public class GameInfoDiscussAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.item_discuss, parent, false);
-        v.setOnClickListener(v1 -> listener.onClickListener(v, (String) v.getTag()));
+        v.setOnClickListener(v1 -> listener.onClickListener(v, (Integer) v.getTag()));
         return new MyViewHolder(v);
     }
 
@@ -135,9 +140,9 @@ public class GameInfoDiscussAdapter extends RecyclerView.Adapter {
         vh.getName().setText(list.get(position).getName());
         vh.getDate().setText(list.get(position).getDate());
         vh.getContent().setText(list.get(position).getContent());
-        vh.getDiscussNum().setText(list.get(position).getDiscussNum());
-        vh.getBadButton().setText(list.get(position).getBadNum());
-        vh.getExcellentButton().setText(list.get(position).getExcellentNum());
+        vh.getDiscussNum().setText(list.get(position).getDiscussNum() + "");
+//        vh.getBadButton().setText(list.get(position).getBadNum());
+//        vh.getExcellentButton().setText(list.get(position).getExcellentNum());
         vh.getPhone().setText(list.get(position).getPhone());
         vh.itemView.setTag(list.get(position).getId());
         if (list.get(position).getDiscussPeople() == null) {

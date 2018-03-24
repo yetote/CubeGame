@@ -11,8 +11,11 @@ import android.view.View;
 public interface OnClick {
     /**
      * recyclerView的点击事件
+     *
+     * @param v   recyclerView的item的view
+     * @param tag itemView的id
      */
-    void onClickListener(View v, String tag);
+    void onClickListener(View v, int tag);
 
     /**
      * recyclerView的长按事件

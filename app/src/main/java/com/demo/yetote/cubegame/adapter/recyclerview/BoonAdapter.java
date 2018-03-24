@@ -119,11 +119,11 @@ public class BoonAdapter extends RecyclerView.Adapter {
         View v;
         if (viewType == BOON_FREE) {
             v = LayoutInflater.from(context).inflate(R.layout.item_boon_free, parent, false);
-            v.setOnClickListener(v1 -> listener.onClickListener(v, (String) v.getTag()));
+            v.setOnClickListener(v1 -> listener.onClickListener(v, (Integer) v.getTag()));
             return new MyFreeViewHolder(v);
         } else {
             v = LayoutInflater.from(context).inflate(R.layout.item_boon_discount, parent, false);
-            v.setOnClickListener(v1 -> listener.onClickListener(v, (String) v.getTag()));
+            v.setOnClickListener(v1 -> listener.onClickListener(v, (Integer) v.getTag()));
             return new MyViewHolder(v);
         }
     }

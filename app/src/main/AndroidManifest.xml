@@ -50,7 +50,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".GameInfoActivity" />
-        <activity android:name=".DetailedDiscuss" />
+        <activity android:name=".DetailedDiscussActivity" />
     </application>
 
 </manifest>

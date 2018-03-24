@@ -46,10 +46,10 @@
                 android:layout_alignParentEnd="true"
                 android:layout_below="@id/fragment_game_info_developerWords_content"
                 android:background="@color/transparent"
-                android:drawableEnd="@mipmap/down"
                 android:gravity="center"
                 android:padding="2dp"
                 android:text="@string/show_all"
+                android:textSize="12sp"
                 android:textColor="@color/textColor" />
         </RelativeLayout>
 
@@ -98,6 +98,7 @@
                 android:gravity="center"
                 android:padding="2dp"
                 android:text="@string/show_all"
+                android:textSize="12sp"
                 android:textColor="@color/textColor" />
         </RelativeLayout>
 
@@ -134,6 +135,7 @@
                 android:gravity="center"
                 android:padding="2dp"
                 android:text="@string/complain"
+                android:textSize="12sp"
                 android:textColor="@color/textColor" />
 
             <TextView

@@ -5,27 +5,23 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.demo.yetote.cubegame.R;
-import com.demo.yetote.cubegame.model.GameLibModel;
+import com.demo.yetote.cubegame.model.GameInfoThemeModel;
 import com.demo.yetote.cubegame.utils.OnClick;
 
 import java.util.ArrayList;
 
 /**
- * com.demo.yetote.cubegame.adapter.recyclerview
- * 游戏库Adapter
+ * com.demo.yetote.cubegame.adapter
  *
  * @author Swg
- * @date 2018/3/14 20:39
+ * @date 2018/2/8 14:05
  */
-public class GameLibAdapter extends RecyclerView.Adapter {
+public class GameInfoThemeAdapter extends RecyclerView.Adapter {
     private Context context;
-    private ArrayList<GameLibModel> list;
+    private ArrayList<GameInfoThemeModel> list;
     private OnClick listener;
 
     public OnClick getListener() {
@@ -35,52 +31,54 @@ public class GameLibAdapter extends RecyclerView.Adapter {
     public void setListener(OnClick listener) {
         this.listener = listener;
     }
-    public GameLibAdapter(Context context, ArrayList<GameLibModel> list) {
+
+    public GameInfoThemeAdapter(Context context, ArrayList<GameInfoThemeModel> list) {
         this.context = context;
         this.list = list;
     }
 
     private class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView title;
-        private RatingBar score;
-        private ImageView iv;
-        // TODO: 2018/3/14 缺少自定义流式布局，展示标签
-
+        private TextView title, content, time, discussNum;
 
         private TextView getTitle() {
             return title;
         }
 
-        private RatingBar getScore() {
-            return score;
+        private TextView getContent() {
+            return content;
         }
 
-        private ImageView getIv() {
-            return iv;
+        private TextView getTime() {
+            return time;
+        }
+
+        private TextView getDiscussNum() {
+            return discussNum;
         }
 
         private MyViewHolder(View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.fragment_gameLib_item_title);
-            iv = itemView.findViewById(R.id.fragment_gameLib_item_cv_iv);
-            score = itemView.findViewById(R.id.fragment_gameLib_item_ratingBar);
-
+            title = itemView.findViewById(R.id.item_game_info_theme_title);
+            content = itemView.findViewById(R.id.item_game_info_theme_content);
+            time = itemView.findViewById(R.id.item_game_info_theme_time);
+            discussNum = itemView.findViewById(R.id.item_game_info_theme_discussNum);
         }
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.item_gamelib, parent, false);
-        v.setOnClickListener(v1 -> listener.onClickListener(v,   (Integer) v.getTag()));
+        View v = LayoutInflater.from(context).inflate(R.layout.item_game_info_theme, parent, false);
+        v.setOnClickListener(v1 -> listener.onClickListener(v,(Integer) v.getTag()));
         return new MyViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         MyViewHolder vh = (MyViewHolder) holder;
+        vh.getContent().setText(list.get(position).getContent());
         vh.getTitle().setText(list.get(position).getTitle());
-        vh.getScore().setRating(Float.parseFloat(list.get(position).getScore()));
-        Glide.with(context).load(list.get(position).getImg()).into(vh.getIv());
+        vh.getTime().setText(list.get(position).getTime());
+        vh.getDiscussNum().setText(list.get(position).getDiscussNum());
         vh.itemView.setTag(list.get(position).getId());
     }
 

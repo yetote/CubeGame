@@ -90,7 +90,7 @@ public class GameInfoForumAdapter extends RecyclerView.Adapter {
             title = itemView.findViewById(R.id.item_gameinfo_forum_title);
             content = itemView.findViewById(R.id.item_gameinfo_forum_content);
             date = itemView.findViewById(R.id.item_gameinfo_forum_date);
-            excellentBtn = itemView.findViewById(R.id.item_gameinfo_forum_excellent);
+//            excellentBtn = itemView.findViewById(R.id.item_gameinfo_forum_excellent);
             discuss = itemView.findViewById(R.id.item_gameinfo_forum_discuss);
             seeNum = itemView.findViewById(R.id.item_gameinfo_forum_seeNum);
 
@@ -100,7 +100,7 @@ public class GameInfoForumAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.item_gameinfo_forum, parent, false);
-        v.setOnClickListener(v1 -> listener.onClickListener(v, (String) v.getTag()));
+        v.setOnClickListener(v1 -> listener.onClickListener(v,  (Integer)  v.getTag()));
         return new MyViewHolder(v);
     }
 
@@ -113,7 +113,7 @@ public class GameInfoForumAdapter extends RecyclerView.Adapter {
         vh.getTitle().setText(list.get(position).getTitle());
         vh.getContent().setText(list.get(position).getContent());
         vh.getDate().setText(list.get(position).getDate());
-        vh.getExcellentBtn().setText(list.get(position).getExcellentNum() + "");
+//        vh.getExcellentBtn().setText(list.get(position).getExcellentNum() + "");
         vh.getDiscuss().setText(list.get(position).getDiscussNum() + "");
         vh.getSeeNum().setText(list.get(position).getSeeNum() + "次游览");
         vh.itemView.setTag(list.get(position).getId());

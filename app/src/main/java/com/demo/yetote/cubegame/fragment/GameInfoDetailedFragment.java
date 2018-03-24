@@ -14,9 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.demo.yetote.cubegame.DetailedDiscussActivity;
-import com.demo.yetote.cubegame.GameInfoActivity;
 import com.demo.yetote.cubegame.R;
-
 import com.demo.yetote.cubegame.adapter.recyclerview.GameInfoPicAdapter;
 import com.demo.yetote.cubegame.adapter.recyclerview.GameInfoThemeAdapter;
 import com.demo.yetote.cubegame.model.GameInfoPicModel;
@@ -74,7 +72,7 @@ public class GameInfoDetailedFragment extends Fragment {
 
     private void initData() {
         picList = new ArrayList<>();
-        // TODO: 2018/3/18 tset
+        // TODO: 2018/3/18 test
         picList.add(new GameInfoPicModel("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521384854233&di=cf3bcab5c0e3ee4deb851b2b26c3b055&imgtype=0&src=http%3A%2F%2Fc.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F5ab5c9ea15ce36d3f7ff9d2136f33a87e950b123.jpg"));
         picList.add(new GameInfoPicModel("https://ss3.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=ea376b0a7e0e0cf3bff748fb3a46f23d/adaf2edda3cc7cd9f775f2c13501213fb80e914a.jpg"));
         picList.add(new GameInfoPicModel("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521384854231&di=fa395a127c118f075241fec30752d4cc&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Ffaf2b2119313b07e824d771800d7912397dd8c29.jpg"));

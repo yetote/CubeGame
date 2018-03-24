@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="5dp">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="2dp"
         app:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="5dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/item_discuss_iv"
@@ -32,11 +32,11 @@
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@id/item_discuss_iv"
+                android:layout_toStartOf="@id/item_discuss_report"
                 android:ellipsize="end"
                 android:gravity="center|start"
                 android:maxLines="1"
                 android:padding="5dp"
-                android:layout_toStartOf="@id/item_discuss_report"
                 android:textColor="@color/gray"
                 android:textSize="@dimen/titleSize"
                 tools:text="@tools:sample/full_names" />
@@ -62,14 +62,14 @@
                 tools:text="九个月前" />
 
             <TextView
-                tools:text="@tools:sample/lorem"
                 android:id="@+id/item_discuss_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/item_discuss_iv"
                 android:ellipsize="end"
                 android:maxLines="7"
-                android:textSize="@dimen/contentSize" />
+                android:textSize="@dimen/contentSize"
+                tools:text="@tools:sample/lorem" />
 
             <TextView
                 android:id="@+id/item_discuss_showMore"
@@ -90,41 +90,50 @@
                 <TextView
                     android:id="@+id/item_discuss_evaluate_mobile"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:drawableStart="@mipmap/phone" />
+                    android:layout_toStartOf="@id/item_discuss_assess_ll"
+                    android:drawableStart="@mipmap/mobile"
+                    android:gravity="center|start" />
 
-                <com.demo.yetote.cubegame.utils.ExcellentButton
-                    android:id="@+id/item_discuss_evaluate_excellent"
-                    android:layout_width="80dp"
-                    android:layout_height="30dp"
-                    android:layout_toStartOf="@id/item_discuss_evaluate_bad" />
-
-                <com.demo.yetote.cubegame.utils.BadButton
-                    android:id="@+id/item_discuss_evaluate_bad"
-                    android:layout_width="80dp"
-                    android:layout_height="30dp"
-                    android:layout_toStartOf="@id/item_discuss_evaluate_discussNum" />
-
-                <TextView
-                    android:id="@+id/item_discuss_evaluate_discussNum"
+                <LinearLayout
+                    android:id="@+id/item_discuss_assess_ll"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignParentTop="true"
-                    android:drawableStart="@mipmap/discuss"
-                    android:gravity="center"
-                    android:text="2" />
+                    >
+
+
+                    <com.demo.yetote.cubegame.utils.ExcellentButton
+                        android:id="@+id/item_discuss_evaluate_excellent"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                         />
+
+                    <com.demo.yetote.cubegame.utils.BadButton
+                        android:id="@+id/item_discuss_evaluate_bad"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/item_discuss_evaluate_discussNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:drawableLeft="@mipmap/discuss"
+                        android:gravity="center|end" />
+                </LinearLayout>
             </RelativeLayout>
 
             <LinearLayout
-                android:padding="5dp"
                 android:id="@+id/item_discuss_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/item_discuss_evaluate_rl"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <LinearLayout
                     android:id="@+id/item_discuss_ll_discussInfo_ll"
@@ -145,6 +154,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/contentSize" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/item_discuss_ll_discussInfo_ll2"
                     android:layout_width="match_parent"

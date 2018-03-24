@@ -122,11 +122,11 @@ public class HomePagerAdapter extends RecyclerView.Adapter {
         View v;
         if (viewType == RECOMMEND_TAG) {
             v = LayoutInflater.from(context).inflate(R.layout.item_homepager_recommend, parent, false);
-            v.setOnClickListener(v1 -> listener.onClickListener(v, (String) v.getTag()));
+            v.setOnClickListener(v1 -> listener.onClickListener(v,   (Integer) v.getTag()));
             return new MyRecommendViewHolder(v);
         } else {
             v = LayoutInflater.from(context).inflate(R.layout.item_homepager, parent, false);
-            v.setOnClickListener(v1 -> listener.onClickListener(v, (String) v.getTag()));
+            v.setOnClickListener(v1 -> listener.onClickListener(v,   (Integer) v.getTag()));
             return new MyViewHolder(v);
         }
     }
