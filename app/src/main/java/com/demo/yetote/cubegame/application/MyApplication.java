@@ -5,12 +5,15 @@ import android.app.Application;
 import android.os.Bundle;
 
 import com.demo.yetote.cubegame.utils.AbstractActivityLifecycleCallbacks;
+import com.demo.yetote.cubegame.utils.Config;
 import com.demo.yetote.cubegame.utils.CrashHandler;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+
+import retrofit2.Retrofit;
 
 /**
  * com.demo.yetote.cubegame.application
@@ -45,6 +48,16 @@ public class MyApplication extends Application {
                 activityList.remove(activity);
             }
         });
+
+        initRetrofit();
+
+
+    }
+
+    private void initRetrofit() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Config.BASE_URL)
+                .build();
 
     }
 

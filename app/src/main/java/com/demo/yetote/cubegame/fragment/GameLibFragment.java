@@ -15,8 +15,18 @@ import com.demo.yetote.cubegame.GameInfoActivity;
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.adapter.recyclerview.GameLibAdapter;
 import com.demo.yetote.cubegame.model.GameLibModel;
+import com.demo.yetote.cubegame.service.GameLibService;
+import com.demo.yetote.cubegame.utils.Config;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * com.demo.yetote.cubegame.fragment
@@ -51,7 +61,26 @@ public class GameLibFragment extends Fragment {
             startActivity(i);
         });
 
+        requestData();
+
         return v;
+    }
+
+    private void requestData() {
+        Retrofit retrofit = new Retrofit
+                .Builder()
+                .baseUrl(Config.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build();
+        GameLibService libService = retrofit.create(GameLibService.class);
+        libService.getData()
+                .observeOn(Schedulers.newThread())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(gameLibModels -> {
+                    list.addAll(gameLibModels);
+                    adapter.notifyDataSetChanged();
+                });
     }
 
     private void initData() {

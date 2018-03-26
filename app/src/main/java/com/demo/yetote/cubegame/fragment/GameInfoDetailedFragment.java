@@ -19,8 +19,19 @@ import com.demo.yetote.cubegame.adapter.recyclerview.GameInfoPicAdapter;
 import com.demo.yetote.cubegame.adapter.recyclerview.GameInfoThemeAdapter;
 import com.demo.yetote.cubegame.model.GameInfoPicModel;
 import com.demo.yetote.cubegame.model.GameInfoThemeModel;
+import com.demo.yetote.cubegame.service.GameInfoPicService;
+import com.demo.yetote.cubegame.service.GameInfoThemeService;
+import com.demo.yetote.cubegame.utils.Config;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * com.demo.yetote.cubegame.fragment
@@ -36,6 +47,7 @@ public class GameInfoDetailedFragment extends Fragment {
     private Button developerWordsShowMore, gameBcShowMore;
     private GameInfoPicAdapter picAdapter;
     private GameInfoThemeAdapter themeAdapter;
+    private Retrofit retrofit;
     private ArrayList<GameInfoPicModel> picList;
     private ArrayList<GameInfoThemeModel> themeList;
     private static final String TAG = "GameInfoDetailedFragmen";
@@ -67,8 +79,58 @@ public class GameInfoDetailedFragment extends Fragment {
             startActivity(i);
         });
 
+        requestData();
+
         return v;
     }
+
+    private void requestData() {
+        initRetrofit();
+        requestPicData();
+        requestThemeData();
+    }
+
+    /**
+     * 初始化Retrofit
+     */
+    private void initRetrofit() {
+        retrofit = new Retrofit.Builder()
+                .baseUrl(Config.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build();
+    }
+
+    /**
+     * 请求游戏图片信息
+     */
+    private void requestPicData() {
+        GameInfoPicService picService = retrofit.create(GameInfoPicService.class);
+
+        picService.getData()
+                .observeOn(Schedulers.newThread())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(gameInfoPicModels -> {
+                    picList.addAll(gameInfoPicModels);
+                    picAdapter.notifyDataSetChanged();
+                });
+    }
+
+    /**
+     * 请求游戏主题帖信息
+     */
+    private void requestThemeData() {
+        GameInfoThemeService themeService = retrofit.create(GameInfoThemeService.class);
+
+        themeService.getData()
+                .observeOn(Schedulers.newThread())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(gameInfoThemeModels -> {
+                    themeList.addAll(gameInfoThemeModels);
+                    themeAdapter.notifyDataSetChanged();
+                });
+    }
+
 
     private void initData() {
         picList = new ArrayList<>();

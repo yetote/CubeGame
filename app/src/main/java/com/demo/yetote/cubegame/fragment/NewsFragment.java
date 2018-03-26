@@ -16,8 +16,19 @@ import com.demo.yetote.cubegame.GameInfoActivity;
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.adapter.recyclerview.NewsRvAdapter;
 import com.demo.yetote.cubegame.model.NewsModel;
+import com.demo.yetote.cubegame.service.GameLibService;
+import com.demo.yetote.cubegame.service.NewsService;
+import com.demo.yetote.cubegame.utils.Config;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * com.demo.yetote.cubegame.fragment
@@ -30,6 +41,7 @@ public class NewsFragment extends Fragment {
     private RecyclerView rv;
     private ViewPager viewPager;
     private ArrayList<NewsModel> list;
+    private NewsRvAdapter adapter;
 
     @Nullable
     @Override
@@ -41,13 +53,15 @@ public class NewsFragment extends Fragment {
         initData();
 
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
-        NewsRvAdapter adapter = new NewsRvAdapter(getActivity(), list);
+        adapter = new NewsRvAdapter(getActivity(), list);
         rv.setAdapter(adapter);
 
         adapter.setListener((v1, tag) -> {
             // TODO: 2018/3/22 加载h5页面
             Toast.makeText(getActivity(), tag, Toast.LENGTH_SHORT).show();
         });
+
+        requestData();
 
         return v;
     }
@@ -73,4 +87,20 @@ public class NewsFragment extends Fragment {
         rv = v.findViewById(R.id.fragment_news_rv);
     }
 
+    private void requestData() {
+        Retrofit retrofit = new Retrofit
+                .Builder()
+                .baseUrl(Config.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build();
+        NewsService newsService = retrofit.create(NewsService.class);
+        newsService.getData()
+                .observeOn(Schedulers.newThread())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(newsModels -> {
+                    list.addAll(newsModels);
+                    adapter.notifyDataSetChanged();
+                });
+    }
 }

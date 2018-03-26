@@ -9,4 +9,6 @@ package com.demo.yetote.cubegame.utils;
  */
 public class Config {
     public static final String QQLOGIN_APPID = "1106398482";
+    public static final String BASE_URL = "http://47.95.206.238/";
+
 }

@@ -18,8 +18,18 @@ import com.demo.yetote.cubegame.GameInfoActivity;
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.adapter.recyclerview.GameInfoForumAdapter;
 import com.demo.yetote.cubegame.model.GameInfoForumModel;
+import com.demo.yetote.cubegame.service.GameInfoForumService;
+import com.demo.yetote.cubegame.utils.Config;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * com.demo.yetote.cubegame.fragment
@@ -58,8 +68,28 @@ public class GameInfoForumFragment extends Fragment implements AdapterView.OnIte
         spinner.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, spinnerItem));
         spinner.setOnItemSelectedListener(this);
 
+        requestData();
+
         return v;
 
+    }
+
+    private void requestData() {
+        Retrofit retrofit = new Retrofit
+                .Builder()
+                .baseUrl(Config.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build();
+
+        GameInfoForumService forumService = retrofit.create(GameInfoForumService.class);
+        forumService.getData()
+                .observeOn(Schedulers.newThread())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(gameInfoForumModels -> {
+                    list.addAll(gameInfoForumModels);
+                    adapter.notifyDataSetChanged();
+                });
     }
 
     private void initViews(View v) {

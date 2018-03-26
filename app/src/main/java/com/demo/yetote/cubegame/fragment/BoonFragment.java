@@ -14,9 +14,21 @@ import com.demo.yetote.cubegame.GameInfoActivity;
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.adapter.recyclerview.BoonAdapter;
 import com.demo.yetote.cubegame.model.BoonModel;
+import com.demo.yetote.cubegame.service.BoonService;
+import com.demo.yetote.cubegame.utils.Config;
 import com.demo.yetote.cubegame.utils.OnClick;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Observer;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * com.demo.yetote.cubegame.fragment
@@ -48,7 +60,28 @@ public class BoonFragment extends Fragment {
             i.setClass(getActivity(), GameInfoActivity.class);
             startActivity(i);
         });
+
+        requestData();
+
         return v;
+    }
+
+    private void requestData() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Config.BASE_URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        BoonService service = retrofit.create(BoonService.class);
+
+        service.getData()
+                .observeOn(Schedulers.newThread())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(boonModels -> {
+                    list.addAll(boonModels);
+                    adapter.notifyDataSetChanged();
+                });
     }
 
     private void initViews(View v) {
@@ -79,4 +112,6 @@ public class BoonFragment extends Fragment {
         list.add(new BoonModel("s", "count", "https://ss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=316a9f2b24381f3081198ba999014c67/6159252dd42a28349bde9b1857b5c9ea15cebfad.jpg", "金对玉，宝对珠，玉兔对金鸟。孤舟对短棹，一雁对双凫。横醉眼，捻吟须，李白对杨朱。秋霜多过雁，夜月有啼乌。日暧园林花易赏，雪寒村舍酒难沽。人处岭南，善探巨象口中齿；客居江右，偶夺骊龙颔下珠。", "%50", "￥85", "￥170", 18, 15));
         list.add(new BoonModel("t", "free", "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521384854233&di=a03fc3bcc3b6da9fa6e0168ea44136ce&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fcc11728b4710b912881abfedcffdfc03934522cd.jpg", "    铢对钅两，只对双，华岳对湘江。朝车对禁鼓，宿火对塞缸。青琐闼，碧纱窗，汉社对周邦。笙箫鸣细细，钟鼓响摐摐。主簿栖鸾名有览，治中展骥姓惟庞。苏武牧羊，雪屡餐于北海；庄周活鲋，水必决于西江", "%50", "￥85", "￥170", 19, 176));
     }
+
+
 }
