@@ -68,7 +68,7 @@ public class GameInfoForumFragment extends Fragment implements AdapterView.OnIte
         spinner.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, spinnerItem));
         spinner.setOnItemSelectedListener(this);
 
-        requestData();
+//        requestData();
 
         return v;
 

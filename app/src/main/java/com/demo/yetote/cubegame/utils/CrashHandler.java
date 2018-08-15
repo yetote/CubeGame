@@ -29,14 +29,9 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     private Context mContext;
 
     /**
-     * 文件夹目录
-     */
-    private static final String PATH = Environment.getExternalStorageDirectory().getPath() + "/com.yetote.cubegame";
-
-    /**
      * 文件名
      */
-    private static final String FILE_NAME = "/crash";
+    private static final String FILE_NAME = "/crash/";
 
     /**
      * 文件名后缀
@@ -44,12 +39,14 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     private static final String FILE_NAME_SUFFIX = ".trace";
 
     private static final CrashHandler ourInstance = new CrashHandler();
+    private String PATH;
 
     public static CrashHandler getInstance() {
         return ourInstance;
     }
 
     private CrashHandler() {
+
     }
 
     /**
@@ -74,6 +71,8 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         //将当前实例设为系统默认的异常捕捉器
         Thread.setDefaultUncaughtExceptionHandler(this);
         mContext = context.getApplicationContext();
+        mContext = context;
+        PATH = mContext.getCacheDir().getPath();
     }
 
     /**
@@ -102,7 +101,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
         //创建log文件
         File file = new File(PATH + FILE_NAME + time + FILE_NAME_SUFFIX);
-        Log.e(TAG, "saveThrowableToSDCard: "+PATH+FILE_NAME+ time+FILE_NAME_SUFFIX);
+        Log.e(TAG, "saveThrowableToSDCard: " + PATH + FILE_NAME + time + FILE_NAME_SUFFIX);
         try {
             PrintWriter printWriter = new PrintWriter(new BufferedWriter(new FileWriter(file)));
 
@@ -120,7 +119,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
             //打印异常信息
             throwable.printStackTrace(printWriter);
-            Log.e(TAG, "saveThrowableToSDCard: "+throwable );
+            Log.e(TAG, "saveThrowableToSDCard: " + throwable);
             printWriter.close();
         } catch (Exception e) {
             e.printStackTrace();

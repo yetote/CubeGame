@@ -61,7 +61,7 @@ public class NewsFragment extends Fragment {
             Toast.makeText(getActivity(), tag, Toast.LENGTH_SHORT).show();
         });
 
-        requestData();
+//        requestData();
 
         return v;
     }

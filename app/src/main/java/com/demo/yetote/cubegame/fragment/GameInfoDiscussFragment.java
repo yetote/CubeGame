@@ -59,7 +59,7 @@ public class GameInfoDiscussFragment extends Fragment {
             i.setClass(getActivity(), DetailedDiscussActivity.class);
             startActivity(i);
         });
-        requestData();
+//        requestData();
         return v;
     }
 

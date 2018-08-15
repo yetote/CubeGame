@@ -2,6 +2,7 @@ package com.demo.yetote.cubegame.adapter.recyclerview;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.demo.yetote.cubegame.R;
 import com.demo.yetote.cubegame.model.HomePagerModel;
+import com.demo.yetote.cubegame.utils.AdvertisementImage;
 import com.demo.yetote.cubegame.utils.OnClick;
 
 import java.util.ArrayList;
@@ -25,9 +27,12 @@ public class HomePagerAdapter extends RecyclerView.Adapter {
     private Context context;
     private ArrayList<HomePagerModel> list;
     private String tag = "仙剑";
-    private static final int RECOMMEND_TAG = 1;
+    private String ad_tag = "广告";
     private static final int UN_RECOMMEND_TAG = 0;
+    private static final int RECOMMEND_TAG = 1;
+    public static final int AD_DOUBLE_IMAGE_TAG = 2;
     private OnClick listener;
+    private static final String TAG = "HomePagerAdapter";
 
     public OnClick getListener() {
         return listener;
@@ -36,6 +41,7 @@ public class HomePagerAdapter extends RecyclerView.Adapter {
     public void setListener(OnClick listener) {
         this.listener = listener;
     }
+
     public HomePagerAdapter(Context context, ArrayList<HomePagerModel> list) {
         this.context = context;
         this.list = list;
@@ -117,17 +123,35 @@ public class HomePagerAdapter extends RecyclerView.Adapter {
         }
     }
 
+    class MyAdDoubleImageViewHolder extends RecyclerView.ViewHolder {
+        private AdvertisementImage adImage;
+
+        public AdvertisementImage getAdImage() {
+            return adImage;
+        }
+
+        public MyAdDoubleImageViewHolder(View itemView) {
+            super(itemView);
+            adImage = itemView.findViewById(R.id.item_ad_doubleImage);
+        }
+    }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v;
         if (viewType == RECOMMEND_TAG) {
             v = LayoutInflater.from(context).inflate(R.layout.item_homepager_recommend, parent, false);
-            v.setOnClickListener(v1 -> listener.onClickListener(v,   (Integer) v.getTag()));
+            v.setOnClickListener(v1 -> listener.onClickListener(v, (Integer) v.getTag()));
             return new MyRecommendViewHolder(v);
-        } else {
+        } else if (viewType == UN_RECOMMEND_TAG) {
             v = LayoutInflater.from(context).inflate(R.layout.item_homepager, parent, false);
-            v.setOnClickListener(v1 -> listener.onClickListener(v,   (Integer) v.getTag()));
+            v.setOnClickListener(v1 -> listener.onClickListener(v, (Integer) v.getTag()));
             return new MyViewHolder(v);
+        } else {
+            v = LayoutInflater.from(context).inflate(R.layout.item_ad_double_image, parent, false);
+            v.setOnClickListener(v1 -> listener.onClickListener(v, (Integer) v.getTag()));
+
+            return new MyAdDoubleImageViewHolder(v);
         }
     }
 
@@ -137,17 +161,22 @@ public class HomePagerAdapter extends RecyclerView.Adapter {
             MyRecommendViewHolder vh = (MyRecommendViewHolder) holder;
             vh.getRecommendTitle().setText(list.get(position).getTitle());
             vh.getRecommendScore().setText(list.get(position).getScore());
-            vh.getRecommendDiscussNum().setText(list.get(position).getDiscussNum()+"");
+            vh.getRecommendDiscussNum().setText(list.get(position).getDiscussNum() + "");
             vh.getDeveloperWords().setText(list.get(position).getDeveloperWords());
             Glide.with(context).load(list.get(position).getIv()).into(vh.getRecommendIv());
             vh.itemView.setTag(list.get(position).getId());
-        } else {
+        } else if (holder instanceof MyViewHolder) {
             MyViewHolder vh = (MyViewHolder) holder;
             vh.getContent().setText(list.get(position).getContent());
             vh.getTitle().setText(list.get(position).getTitle());
             vh.getScore().setText(list.get(position).getScore());
             Glide.with(context).load(list.get(position).getIv()).into(vh.getIv());
             vh.itemView.setTag(list.get(position).getId());
+        } else if (holder instanceof MyAdDoubleImageViewHolder) {
+            MyAdDoubleImageViewHolder vh = (MyAdDoubleImageViewHolder) holder;
+            vh.itemView.setTag(-1);
+
+            Log.e(TAG, "onBindViewHolder: " + vh.getAdImage().getTop());
         }
     }
 
@@ -160,6 +189,8 @@ public class HomePagerAdapter extends RecyclerView.Adapter {
     public int getItemViewType(int position) {
         if (list.get(position).getTag().equals(tag)) {
             return RECOMMEND_TAG;
+        } else if (list.get(position).getTag().equals(ad_tag)) {
+            return AD_DOUBLE_IMAGE_TAG;
         } else {
             return UN_RECOMMEND_TAG;
         }

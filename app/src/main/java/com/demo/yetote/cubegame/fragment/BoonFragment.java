@@ -61,7 +61,7 @@ public class BoonFragment extends Fragment {
             startActivity(i);
         });
 
-        requestData();
+//        requestData();
 
         return v;
     }

@@ -61,7 +61,7 @@ public class GameLibFragment extends Fragment {
             startActivity(i);
         });
 
-        requestData();
+//        requestData();
 
         return v;
     }
